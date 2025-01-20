@@ -21,4 +21,5 @@ def home(request):
      
     return render(request,"home.html",context)
 
- 
+def productview(request):
+    return render(request,"product-view.html")
