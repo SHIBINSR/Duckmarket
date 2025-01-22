@@ -22,4 +22,14 @@ def home(request):
     return render(request,"home.html",context)
 
 def productview(request):
-    return render(request,"product-view.html")
+    category = Category.objects.all()
+    product = Products.objects.all()
+    
+    context = {
+        "category":category,
+        'products':product
+    }
+    return render(request,"product-view.html",context)
+
+def filter_category(request):
+    pass

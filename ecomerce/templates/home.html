@@ -192,14 +192,7 @@
                                             <i class="fal fa-eye"></i>
                                             <i class="fal fa-eye"></i>
                                         </a>
-                                        <a href="#" class="icon-box icon-box-1">
-                                            <i class="fal fa-heart"></i>
-                                            <i class="fal fa-heart"></i>
-                                        </a>
-                                        <a href="#" class="icon-box icon-box-1">
-                                            <i class="fal fa-layer-group"></i>
-                                            <i class="fal fa-layer-group"></i>
-                                        </a>
+                                        
                                     </div>
                                 </div>
                                 <div class="product__content">
@@ -216,7 +209,7 @@
                                     </div> -->
                                     <div class="price mb-10">
                                         <del>&#8377;{{ product.price }}</del>
-                                        <span>{% discount_price product.price product.discount %}</span>
+                                        <span>&#8377;{% discount_price product.price product.discount %}</span>
                                     </div>
                                     <div class="progress mb-5">
                                         <div class="progress-bar bg-danger" role="progressbar" style="width:50%"
@@ -326,7 +319,7 @@
                                     </div>
                                     <div class="product__price">
                                         <del>&#8377;{{ i.price }}</del>
-                                        <span>{% discount_price i.price i.discount %}</span>
+                                        <span>&#8377;{% discount_price i.price i.discount %}</span>
 
                                     </div>
                                     <div class="product__modal-des mt-20 mb-15">

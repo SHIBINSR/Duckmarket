@@ -5,22 +5,7 @@
 
 <main>
     <!-- breadcrumb__area-start -->
-    <section class="breadcrumb__area box-plr-75">
-        <div class="container">
-            <div class="row">
-                <div class="col-xxl-12">
-                    <div class="breadcrumb__wrapper">
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                              <li class="breadcrumb-item active" aria-current="page">Shop</li>
-                            </ol>
-                          </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+     <br>
     <!-- breadcrumb__area-end -->
 
     <!-- shop-area-start -->
@@ -31,144 +16,19 @@
                     <div class="product-widget mb-30">
                         <h5 class="pt-title">Product categories</h5>
                         <div class="widget-category-list mt-20">
-                            <form action="#">
+                            {% for cat in category %}
                                 <div class="single-widget-category">
-                                    <input type="checkbox" id="cat-item-1" name="cat-item">
-                                    <label for="cat-item-1">Clothing &amp; Apparel <span>(12)</span></label>
+                                    <input class="checker" type="checkbox" id="cat-item-{{ forloop.counter }}" name="{{ cat.id }}" value="{{ cat.id }}">
+                                    <label for="cat-item-{{ forloop.conter }}">{{ cat.title }} <span>({{ cat.products_set.all.count }})</span> </label>
                                 </div>
-                                <div class="single-widget-category">
-                                    <input type="checkbox" id="cat-item-2" name="cat-item">
-                                    <label for="cat-item-2">Consumer Electrics <span>(60)</span></label>
-                                </div>
-                                <div class="single-widget-category">
-                                    <input type="checkbox" id="cat-item-3" name="cat-item">
-                                    <label for="cat-item-3">Computers &amp; Technologies <span>(41)</span></label>
-                                </div>
-                                <div class="single-widget-category">
-                                    <input type="checkbox" id="cat-item-4" name="cat-item">
-                                    <label for="cat-item-4">Phones &amp; Accessories <span>(28)</span></label>
-                                </div>
-                                <div class="single-widget-category">
-                                    <input type="checkbox" id="cat-item-5" name="cat-item">
-                                    <label for="cat-item-5">Babies &amp; Moms <span>(21)</span></label>
-                                </div>
-                                <div class="single-widget-category">
-                                    <input type="checkbox" id="cat-item-7" name="cat-item">
-                                    <label for="cat-item-7">Books &amp; Office <span>(62)</span></label>
-                                </div>
-                                <div class="single-widget-category">
-                                    <input type="checkbox" id="cat-item-8" name="cat-item">
-                                    <label for="cat-item-8">Sport &amp; Outdoo <span>(22)</span></label>
-                                </div>
-                                <div class="single-widget-category">
-                                    <input type="checkbox" id="cat-item-9" name="cat-item">
-                                    <label for="cat-item-9">Chairs &amp; Stools <span>(20)</span></label>
-                                </div>
-                                <div class="single-widget-category">
-                                    <input type="checkbox" id="cat-item-10" name="cat-item">
-                                    <label for="cat-item-10">Furniture &amp; Acessories <span>(06)</span></label>
-                                </div>
-                                <div class="single-widget-category">
-                                    <input type="checkbox" id="cat-item-11" name="cat-item">
-                                    <label for="cat-item-11">Kitchen &amp; Tableware <span>(30)</span></label>
-                                </div>
-                                <div class="single-widget-category">
-                                    <input type="checkbox" id="cat-item-12" name="cat-item">
-                                    <label for="cat-item-12">Lighting <span>(30)</span></label>
-                                </div>
-                                <div class="single-widget-category">
-                                    <input type="checkbox" id="cat-item-13" name="cat-item">
-                                    <label for="cat-item-13">Armchairs &amp; Chaises <span>(30)</span></label>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    
-                   
-                    
-                    <div class="product-widget mb-30">
-                        <h5 class="pt-title">Special Offers</h5>
-                        <div class="product__sm mt-20">
-                            <ul>
-                                <li class="product__sm-item d-flex align-items-center">
-                                    <div class="product__sm-thumb mr-20">
-                                        <a href="product-details.html">
-                                            <img src="{% static 'assets/img/product/sm-1.jpg' %}" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="product__sm-content">
-                                        <h5 class="product__sm-title">
-                                            <a href="product-details.html">Classic Leather Backpack Daypack 2022</a>
-                                        </h5>
-                                        <div class="product__sm-price">
-                                            <span class="price">$300.00</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="product__sm-item d-flex align-items-center">
-                                    <div class="product__sm-thumb mr-20">
-                                        <a href="product-details.html">
-                                            <img src="{% static 'assets/img/product/sm-2.jpg' %}" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="product__sm-content">
-                                        <h5 class="product__sm-title">
-                                            <a href="product-details.html">Samsung Galaxy A12, 32GB, Black - (Locked)</a>
-                                        </h5>
-                                        <div class="product__sm-price">
-                                            <span class="price">$150.00</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="product__sm-item d-flex align-items-center">
-                                    <div class="product__sm-thumb mr-20">
-                                        <a href="product-details.html">
-                                            <img src="{% static 'assets/img/product/sm-3.jpg' %}" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="product__sm-content">
-                                        <h5 class="product__sm-title">
-                                            <a href="#">Coffee Maker AH240a Full Function</a>
-                                        </h5>
-                                        <div class="product__sm-price">
-                                            <span class="price">$300.00</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="product__sm-item d-flex align-items-center">
-                                    <div class="product__sm-thumb mr-20">
-                                        <a href="product-details.html">
-                                            <img src="{% static 'assets/img/product/sm-4.jpg' %}" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="product__sm-content">
-                                        <h5 class="product__sm-title">
-                                            <a href="product-details.html">Imported Wooden Felt Cushion Chair</a>
-                                        </h5>
-                                        <div class="product__sm-price">
-                                            <span class="price">$120.00</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="product__sm-item d-flex align-items-center">
-                                    <div class="product__sm-thumb mr-20">
-                                        <a href="product-details.html">
-                                            <img src="{% static 'assets/img/product/sm-5.jpg' %}" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="product__sm-content">
-                                        <h5 class="product__sm-title">
-                                            <a href="product-details.html">Sunhouse Decorative Lights - Imported</a>
-                                        </h5>
-                                        <div class="product__sm-price">
-                                            <span class="price">$110.00</span>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
+        
+                             {% endfor %}
                         </div>
                     </div>
                 </div>
+
+
+
                 <div class="col-xl-9 col-lg-8">
                     <div class="shop-banner mb-30">
                         <div class="banner-image">
@@ -230,12 +90,14 @@
                         <div class="tab-pane fade  show active" id="FourCol" role="tabpanel" aria-labelledby="FourCol-tab">
                             <div class="tp-wrapper">
                                 <div class="row g-0">
+
+                                    {% for pro in products %}
                                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
                                         <div class="product__item product__item-d">
                                             <div class="product__thumb fix">
                                                 <div class="product-image w-img">
                                                     <a href="product-details.html">
-                                                        <img src="{% static 'assets/img/product/tp-2.jpg' %}" alt="product">
+                                                        <img src="{{ pro.featured_image }}" style="height: 300px; width: 242px;" alt="product">
                                                     </a>
                                                 </div>
                                                 <div class="product-action">
@@ -243,30 +105,16 @@
                                                         <i class="fal fa-eye"></i>
                                                         <i class="fal fa-eye"></i>
                                                     </a>
-                                                    <a href="#" class="icon-box icon-box-1">
-                                                        <i class="fal fa-heart"></i>
-                                                        <i class="fal fa-heart"></i>
-                                                    </a>
-                                                    <a href="#" class="icon-box icon-box-1">
-                                                        <i class="fal fa-layer-group"></i>
-                                                        <i class="fal fa-layer-group"></i>
-                                                    </a>
+                                                     
                                                 </div>
                                             </div>
                                             <div class="product__content-3">
-                                                <h6><a href="product-details.html">Men Size Yellow Basketball Jerseys</a></h6>
-                                                <div class="rating mb-5">
-                                                    <ul>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                    </ul>
-                                                    <span>(01 review)</span>
-                                                </div>
+                                                <h6><a href="#">{{ pro.title| slice:":25" }}</a></h6>
+                        
                                                 <div class="price mb-10">
-                                                    <span>$110-$150</span>
+                                                    <del>&#8377;{{ pro.price }}</del>
+                                                   <b>&#8377;{% discount_price pro.price pro.discount %}</b>
+                                                    
                                                 </div>
                                             </div>
                                             <div class="product__add-cart-s text-center">
@@ -278,1496 +126,14 @@
                                                 </button>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                                        <div class="product__item product__item-d">
-                                            <div class="product__thumb fix">
-                                                <div class="product-image w-img">
-                                                    <a href="product-details.html">
-                                                        <img src="{% static 'assets/img/product/tp-3.jpg' %}" alt="product">
-                                                    </a>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                        <i class="fal fa-eye"></i>
-                                                        <i class="fal fa-eye"></i>
-                                                    </a>
-                                                    <a href="#" class="icon-box icon-box-1">
-                                                        <i class="fal fa-heart"></i>
-                                                        <i class="fal fa-heart"></i>
-                                                    </a>
-                                                    <a href="#" class="icon-box icon-box-1">
-                                                        <i class="fal fa-layer-group"></i>
-                                                        <i class="fal fa-layer-group"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="product__content-3">
-                                                <h6><a href="product-details.html">Xbox Wireless Game Controller Pink</a></h6>
-                                                <div class="rating mb-5">
-                                                    <ul>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                    </ul>
-                                                    <span>(01 review)</span>
-                                                </div>
-                                                <div class="price mb-10">
-                                                    <span>$130-$150</span>
-                                                </div>
-                                            </div>
-                                            <div class="product__add-cart-s text-center">
-                                                <button type="button" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
-                                                Add to Cart
-                                                </button>
-                                                <button type="button" class="wc-checkout d-flex align-items-center justify-content-center w-100" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                    Quick View
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                                        <div class="product__item product__item-d">
-                                            <div class="product__thumb fix">
-                                                <div class="product-image w-img">
-                                                    <a href="product-details.html">
-                                                        <img src="{% static 'assets/img/product/tp-4.jpg' %}" alt="product">
-                                                    </a>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                        <i class="fal fa-eye"></i>
-                                                        <i class="fal fa-eye"></i>
-                                                    </a>
-                                                    <a href="#" class="icon-box icon-box-1">
-                                                        <i class="fal fa-heart"></i>
-                                                        <i class="fal fa-heart"></i>
-                                                    </a>
-                                                    <a href="#" class="icon-box icon-box-1">
-                                                        <i class="fal fa-layer-group"></i>
-                                                        <i class="fal fa-layer-group"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="product__content-3">
-                                                <h6><a href="product-details.html">Wireless Bluetooth Over-Ear Headphones</a></h6>
-                                                <div class="rating mb-5">
-                                                    <ul>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                    </ul>
-                                                    <span>(01 review)</span>
-                                                </div>
-                                                <div class="price mb-10">
-                                                    <span>$135-$150</span>
-                                                </div>
-                                            </div>
-                                            <div class="product__add-cart-s text-center">
-                                                <button type="button" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
-                                                Add to Cart
-                                                </button>
-                                                <button type="button" class="wc-checkout d-flex align-items-center justify-content-center w-100" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                    Quick View
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                                        <div class="product__item product__item-d">
-                                            <div class="product__thumb fix">
-                                                <div class="product-image w-img">
-                                                    <a href="product-details.html">
-                                                        <img src="{% static 'assets/img/product/tp-5.jpg' %}" alt="product">
-                                                    </a>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                        <i class="fal fa-eye"></i>
-                                                        <i class="fal fa-eye"></i>
-                                                    </a>
-                                                    <a href="#" class="icon-box icon-box-1">
-                                                        <i class="fal fa-heart"></i>
-                                                        <i class="fal fa-heart"></i>
-                                                    </a>
-                                                    <a href="#" class="icon-box icon-box-1">
-                                                        <i class="fal fa-layer-group"></i>
-                                                        <i class="fal fa-layer-group"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="product__content-3">
-                                                <h6><a href="product-details.html">Solo3 Wireless On-Ear Headphones</a></h6>
-                                                <div class="rating mb-5">
-                                                    <ul>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                    </ul>
-                                                    <span>(01 review)</span>
-                                                </div>
-                                                <div class="price mb-10">
-                                                    <span>$140-$150</span>
-                                                </div>
-                                            </div>
-                                            <div class="product__add-cart-s text-center">
-                                                <button type="button" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
-                                                Add to Cart
-                                                </button>
-                                                <button type="button" class="wc-checkout d-flex align-items-center justify-content-center w-100" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                    Quick View
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                                        <div class="product__item product__item-d">
-                                            <div class="product__thumb fix">
-                                                <div class="product-image w-img">
-                                                    <a href="product-details.html">
-                                                        <img src="{% static 'assets/img/product/tp-6.jpg' %}" alt="product">
-                                                    </a>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                        <i class="fal fa-eye"></i>
-                                                        <i class="fal fa-eye"></i>
-                                                    </a>
-                                                    <a href="#" class="icon-box icon-box-1">
-                                                        <i class="fal fa-heart"></i>
-                                                        <i class="fal fa-heart"></i>
-                                                    </a>
-                                                    <a href="#" class="icon-box icon-box-1">
-                                                        <i class="fal fa-layer-group"></i>
-                                                        <i class="fal fa-layer-group"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="product__content-3">
-                                                <h6><a href="product-details.html">Vifa Bluetooth Portable Wireless Speaker</a></h6>
-                                                <div class="rating mb-5">
-                                                    <ul>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                    </ul>
-                                                    <span>(01 review)</span>
-                                                </div>
-                                                <div class="price mb-10">
-                                                    <span>$140-$200</span>
-                                                </div>
-                                            </div>
-                                            <div class="product__add-cart-s text-center">
-                                                <button type="button" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
-                                                Add to Cart
-                                                </button>
-                                                <button type="button" class="wc-checkout d-flex align-items-center justify-content-center w-100" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                    Quick View
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                                        <div class="product__item product__item-d">
-                                            <div class="product__thumb fix">
-                                                <div class="product-image w-img">
-                                                    <a href="product-details.html">
-                                                        <img src="{% static 'assets/img/product/tp-7.jpg' %}" alt="product">
-                                                    </a>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                        <i class="fal fa-eye"></i>
-                                                        <i class="fal fa-eye"></i>
-                                                    </a>
-                                                    <a href="#" class="icon-box icon-box-1">
-                                                        <i class="fal fa-heart"></i>
-                                                        <i class="fal fa-heart"></i>
-                                                    </a>
-                                                    <a href="#" class="icon-box icon-box-1">
-                                                        <i class="fal fa-layer-group"></i>
-                                                        <i class="fal fa-layer-group"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="product__content-3">
-                                                <h6><a href="product-details.html">APPO R11s 64GB Dual 20MP Cameras</a></h6>
-                                                <div class="rating mb-5">
-                                                    <ul>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                    </ul>
-                                                    <span>(01 review)</span>
-                                                </div>
-                                                <div class="price mb-10">
-                                                    <span>$100-$120</span>
-                                                </div>
-                                            </div>
-                                            <div class="product__add-cart-s text-center">
-                                                <button type="button" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
-                                                Add to Cart
-                                                </button>
-                                                <button type="button" class="wc-checkout d-flex align-items-center justify-content-center w-100" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                    Quick View
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                                        <div class="product__item product__item-d">
-                                            <div class="product__thumb fix">
-                                                <div class="product-image w-img">
-                                                    <a href="product-details.html">
-                                                        <img src="{% static 'assets/img/product/tp-10.jpg' %}" alt="product">
-                                                    </a>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                        <i class="fal fa-eye"></i>
-                                                        <i class="fal fa-eye"></i>
-                                                    </a>
-                                                    <a href="#" class="icon-box icon-box-1">
-                                                        <i class="fal fa-heart"></i>
-                                                        <i class="fal fa-heart"></i>
-                                                    </a>
-                                                    <a href="#" class="icon-box icon-box-1">
-                                                        <i class="fal fa-layer-group"></i>
-                                                        <i class="fal fa-layer-group"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="product__content-3">
-                                                <h6><a href="product-details.html">G951s Pink Stereo Gaming Headset</a></h6>
-                                                <div class="rating mb-5">
-                                                    <ul>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                    </ul>
-                                                    <span>(01 review)</span>
-                                                </div>
-                                                <div class="price mb-10">
-                                                    <span>$145-$150</span>
-                                                </div>
-                                            </div>
-                                            <div class="product__add-cart-s text-center">
-                                                <button type="button" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
-                                                Add to Cart
-                                                </button>
-                                                <button type="button" class="wc-checkout d-flex align-items-center justify-content-center w-100" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                    Quick View
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                                        <div class="product__item product__item-d">
-                                            <div class="product__thumb fix">
-                                                <div class="product-image w-img">
-                                                    <a href="product-details.html">
-                                                        <img src="{% static 'assets/img/product/tp-9.jpg' %}" alt="product">
-                                                    </a>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                        <i class="fal fa-eye"></i>
-                                                        <i class="fal fa-eye"></i>
-                                                    </a>
-                                                    <a href="#" class="icon-box icon-box-1">
-                                                        <i class="fal fa-heart"></i>
-                                                        <i class="fal fa-heart"></i>
-                                                    </a>
-                                                    <a href="#" class="icon-box icon-box-1">
-                                                        <i class="fal fa-layer-group"></i>
-                                                        <i class="fal fa-layer-group"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="product__content-3">
-                                                <h6><a href="product-details.html">Epple iPhone 11 Pro Max 64GB Gold</a></h6>
-                                                <div class="rating mb-5">
-                                                    <ul>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                    </ul>
-                                                    <span>(01 review)</span>
-                                                </div>
-                                                <div class="price mb-10">
-                                                    <span>$120-$140</span>
-                                                </div>
-                                            </div>
-                                            <div class="product__add-cart-s text-center">
-                                                <button type="button" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
-                                                Add to Cart
-                                                </button>
-                                                <button type="button" class="wc-checkout d-flex align-items-center justify-content-center w-100" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                    Quick View
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                                        <div class="product__item product__item-d">
-                                            <div class="product__thumb fix">
-                                                <div class="product-image w-img">
-                                                    <a href="product-details.html">
-                                                        <img src="{% static 'assets/img/product/tp-20.jpg' %}" alt="product">
-                                                    </a>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                        <i class="fal fa-eye"></i>
-                                                        <i class="fal fa-eye"></i>
-                                                    </a>
-                                                    <a href="#" class="icon-box icon-box-1">
-                                                        <i class="fal fa-heart"></i>
-                                                        <i class="fal fa-heart"></i>
-                                                    </a>
-                                                    <a href="#" class="icon-box icon-box-1">
-                                                        <i class="fal fa-layer-group"></i>
-                                                        <i class="fal fa-layer-group"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="product__content-3">
-                                                <h6><a href="product-details.html">Casentino Bucket Hat Luxury Goods – Imported</a></h6>
-                                                <div class="rating mb-5">
-                                                    <ul>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                    </ul>
-                                                    <span>(01 review)</span>
-                                                </div>
-                                                <div class="price mb-10">
-                                                    <span>$110-$140</span>
-                                                </div>
-                                            </div>
-                                            <div class="product__add-cart-s text-center">
-                                                <button type="button" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
-                                                Add to Cart
-                                                </button>
-                                                <button type="button" class="wc-checkout d-flex align-items-center justify-content-center w-100" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                    Quick View
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                                        <div class="product__item product__item-d">
-                                            <div class="product__thumb fix">
-                                                <div class="product-image w-img">
-                                                    <a href="product-details.html">
-                                                        <img src="{% static 'assets/img/product/tp-12.jpg' %}" alt="product">
-                                                    </a>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                        <i class="fal fa-eye"></i>
-                                                        <i class="fal fa-eye"></i>
-                                                    </a>
-                                                    <a href="#" class="icon-box icon-box-1">
-                                                        <i class="fal fa-heart"></i>
-                                                        <i class="fal fa-heart"></i>
-                                                    </a>
-                                                    <a href="#" class="icon-box icon-box-1">
-                                                        <i class="fal fa-layer-group"></i>
-                                                        <i class="fal fa-layer-group"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="product__content-3">
-                                                <h6><a href="product-details.html">Classic Leather Backpack Daypack 2022</a></h6>
-                                                <div class="rating mb-5">
-                                                    <ul>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                    </ul>
-                                                    <span>(01 review)</span>
-                                                </div>
-                                                <div class="price mb-10">
-                                                    <span>$105-$140</span>
-                                                </div>
-                                            </div>
-                                            <div class="product__add-cart-s text-center">
-                                                <button type="button" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
-                                                Add to Cart
-                                                </button>
-                                                <button type="button" class="wc-checkout d-flex align-items-center justify-content-center w-100" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                    Quick View
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                                        <div class="product__item product__item-d">
-                                            <div class="product__thumb fix">
-                                                <div class="product-image w-img">
-                                                    <a href="product-details.html">
-                                                        <img src="{% static 'assets/img/product/tp-13.jpg' %}" alt="product">
-                                                    </a>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                        <i class="fal fa-eye"></i>
-                                                        <i class="fal fa-eye"></i>
-                                                    </a>
-                                                    <a href="#" class="icon-box icon-box-1">
-                                                        <i class="fal fa-heart"></i>
-                                                        <i class="fal fa-heart"></i>
-                                                    </a>
-                                                    <a href="#" class="icon-box icon-box-1">
-                                                        <i class="fal fa-layer-group"></i>
-                                                        <i class="fal fa-layer-group"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="product__content-3">
-                                                <h6><a href="product-details.html">Coffee Maker AH240a Full Function</a></h6>
-                                                <div class="rating mb-5">
-                                                    <ul>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                    </ul>
-                                                    <span>(01 review)</span>
-                                                </div>
-                                                <div class="price mb-10">
-                                                    <span>$170-$280</span>
-                                                </div>
-                                            </div>
-                                            <div class="product__add-cart-s text-center">
-                                                <button type="button" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
-                                                Add to Cart
-                                                </button>
-                                                <button type="button" class="wc-checkout d-flex align-items-center justify-content-center w-100" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                    Quick View
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                                        <div class="product__item product__item-d">
-                                            <div class="product__thumb fix">
-                                                <div class="product-image w-img">
-                                                    <a href="product-details.html">
-                                                        <img src="{% static 'assets/img/product/tp-14.jpg' %}" alt="product">
-                                                    </a>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                        <i class="fal fa-eye"></i>
-                                                        <i class="fal fa-eye"></i>
-                                                    </a>
-                                                    <a href="#" class="icon-box icon-box-1">
-                                                        <i class="fal fa-heart"></i>
-                                                        <i class="fal fa-heart"></i>
-                                                    </a>
-                                                    <a href="#" class="icon-box icon-box-1">
-                                                        <i class="fal fa-layer-group"></i>
-                                                        <i class="fal fa-layer-group"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="product__content-3">
-                                                <h6><a href="product-details.html">Imported Wooden Felt Cushion Chair</a></h6>
-                                                <div class="rating mb-5">
-                                                    <ul>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                    </ul>
-                                                    <span>(01 review)</span>
-                                                </div>
-                                                <div class="price mb-10">
-                                                    <span>$160-$280</span>
-                                                </div>
-                                            </div>
-                                            <div class="product__add-cart-s text-center">
-                                                <button type="button" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
-                                                Add to Cart
-                                                </button>
-                                                <button type="button" class="wc-checkout d-flex align-items-center justify-content-center w-100" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                    Quick View
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                                        <div class="product__item product__item-d">
-                                            <div class="product__thumb fix">
-                                                <div class="product-image w-img">
-                                                    <a href="product-details.html">
-                                                        <img src="{% static 'assets/img/product/tp-15.jpg' %}" alt="product">
-                                                    </a>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                        <i class="fal fa-eye"></i>
-                                                        <i class="fal fa-eye"></i>
-                                                    </a>
-                                                    <a href="#" class="icon-box icon-box-1">
-                                                        <i class="fal fa-heart"></i>
-                                                        <i class="fal fa-heart"></i>
-                                                    </a>
-                                                    <a href="#" class="icon-box icon-box-1">
-                                                        <i class="fal fa-layer-group"></i>
-                                                        <i class="fal fa-layer-group"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="product__content-3">
-                                                <h6><a href="product-details.html">Sunhouse Decorative Lights – Imported</a></h6>
-                                                <div class="rating mb-5">
-                                                    <ul>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                    </ul>
-                                                    <span>(01 review)</span>
-                                                </div>
-                                                <div class="price mb-10">
-                                                    <span>$120-$280</span>
-                                                </div>
-                                            </div>
-                                            <div class="product__add-cart-s text-center">
-                                                <button type="button" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
-                                                Add to Cart
-                                                </button>
-                                                <button type="button" class="wc-checkout d-flex align-items-center justify-content-center w-100" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                    Quick View
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                                        <div class="product__item product__item-d">
-                                            <div class="product__thumb fix">
-                                                <div class="product-image w-img">
-                                                    <a href="product-details.html">
-                                                        <img src="{% static 'assets/img/product/tp-16.jpg' %}" alt="product">
-                                                    </a>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                        <i class="fal fa-eye"></i>
-                                                        <i class="fal fa-eye"></i>
-                                                    </a>
-                                                    <a href="#" class="icon-box icon-box-1">
-                                                        <i class="fal fa-heart"></i>
-                                                        <i class="fal fa-heart"></i>
-                                                    </a>
-                                                    <a href="#" class="icon-box icon-box-1">
-                                                        <i class="fal fa-layer-group"></i>
-                                                        <i class="fal fa-layer-group"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="product__content-3">
-                                                <h6><a href="product-details.html">Korea Stainless Steel Pot Set 5 Piecs</a></h6>
-                                                <div class="rating mb-5">
-                                                    <ul>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                    </ul>
-                                                    <span>(01 review)</span>
-                                                </div>
-                                                <div class="price mb-10">
-                                                    <span>$125-$280</span>
-                                                </div>
-                                            </div>
-                                            <div class="product__add-cart-s text-center">
-                                                <button type="button" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
-                                                Add to Cart
-                                                </button>
-                                                <button type="button" class="wc-checkout d-flex align-items-center justify-content-center w-100" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                    Quick View
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                                        <div class="product__item product__item-d">
-                                            <div class="product__thumb fix">
-                                                <div class="product-image w-img">
-                                                    <a href="product-details.html">
-                                                        <img src="{% static 'assets/img/product/tp-17.jpg' %}" alt="product">
-                                                    </a>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                        <i class="fal fa-eye"></i>
-                                                        <i class="fal fa-eye"></i>
-                                                    </a>
-                                                    <a href="#" class="icon-box icon-box-1">
-                                                        <i class="fal fa-heart"></i>
-                                                        <i class="fal fa-heart"></i>
-                                                    </a>
-                                                    <a href="#" class="icon-box icon-box-1">
-                                                        <i class="fal fa-layer-group"></i>
-                                                        <i class="fal fa-layer-group"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="product__content-3">
-                                                <h6><a href="product-details.html">HP Stainless Steel Hot Water Bottle</a></h6>
-                                                <div class="rating mb-5">
-                                                    <ul>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                    </ul>
-                                                    <span>(01 review)</span>
-                                                </div>
-                                                <div class="price mb-10">
-                                                    <span>$170-$280</span>
-                                                </div>
-                                            </div>
-                                            <div class="product__add-cart-s text-center">
-                                                <button type="button" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
-                                                Add to Cart
-                                                </button>
-                                                <button type="button" class="wc-checkout d-flex align-items-center justify-content-center w-100" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                    Quick View
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                                        <div class="product__item product__item-d">
-                                            <div class="product__thumb fix">
-                                                <div class="product-image w-img">
-                                                    <a href="product-details.html">
-                                                        <img src="{% static 'assets/img/product/tp-18.jpg' %}" alt="product">
-                                                    </a>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                        <i class="fal fa-eye"></i>
-                                                        <i class="fal fa-eye"></i>
-                                                    </a>
-                                                    <a href="#" class="icon-box icon-box-1">
-                                                        <i class="fal fa-heart"></i>
-                                                        <i class="fal fa-heart"></i>
-                                                    </a>
-                                                    <a href="#" class="icon-box icon-box-1">
-                                                        <i class="fal fa-layer-group"></i>
-                                                        <i class="fal fa-layer-group"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="product__content-3">
-                                                <h6><a href="product-details.html">The North Face Womens Resolve 2 Jack</a></h6>
-                                                <div class="rating mb-5">
-                                                    <ul>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                    </ul>
-                                                    <span>(01 review)</span>
-                                                </div>
-                                                <div class="price mb-10">
-                                                    <span>$150-$280</span>
-                                                </div>
-                                            </div>
-                                            <div class="product__add-cart-s text-center">
-                                                <button type="button" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
-                                                Add to Cart
-                                                </button>
-                                                <button type="button" class="wc-checkout d-flex align-items-center justify-content-center w-100" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                    Quick View
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                                        <div class="product__item product__item-d">
-                                            <div class="product__thumb fix">
-                                                <div class="product-image w-img">
-                                                    <a href="product-details.html">
-                                                        <img src="{% static 'assets/img/product/tp-22.jpg' %}" alt="product">
-                                                    </a>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                        <i class="fal fa-eye"></i>
-                                                        <i class="fal fa-eye"></i>
-                                                    </a>
-                                                    <a href="#" class="icon-box icon-box-1">
-                                                        <i class="fal fa-heart"></i>
-                                                        <i class="fal fa-heart"></i>
-                                                    </a>
-                                                    <a href="#" class="icon-box icon-box-1">
-                                                        <i class="fal fa-layer-group"></i>
-                                                        <i class="fal fa-layer-group"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="product__content-3">
-                                                <h6><a href="product-details.html">Diesel J Ross Rev Reversy Bomber Jacket</a></h6>
-                                                <div class="rating mb-5">
-                                                    <ul>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                    </ul>
-                                                    <span>(01 review)</span>
-                                                </div>
-                                                <div class="price mb-10">
-                                                    <span>$180-$280</span>
-                                                </div>
-                                            </div>
-                                            <div class="product__add-cart-s text-center">
-                                                <button type="button" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
-                                                Add to Cart
-                                                </button>
-                                                <button type="button" class="wc-checkout d-flex align-items-center justify-content-center w-100" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                    Quick View
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                                        <div class="product__item product__item-d">
-                                            <div class="product__thumb fix">
-                                                <div class="product-image w-img">
-                                                    <a href="product-details.html">
-                                                        <img src="{% static 'assets/img/product/tp-23.jpg' %}" alt="product">
-                                                    </a>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                        <i class="fal fa-eye"></i>
-                                                        <i class="fal fa-eye"></i>
-                                                    </a>
-                                                    <a href="#" class="icon-box icon-box-1">
-                                                        <i class="fal fa-heart"></i>
-                                                        <i class="fal fa-heart"></i>
-                                                    </a>
-                                                    <a href="#" class="icon-box icon-box-1">
-                                                        <i class="fal fa-layer-group"></i>
-                                                        <i class="fal fa-layer-group"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="product__content-3">
-                                                <h6><a href="product-details.html">HOT – H&M “Spring Icons” Collaboration Jackets</a></h6>
-                                                <div class="rating mb-5">
-                                                    <ul>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                    </ul>
-                                                    <span>(01 review)</span>
-                                                </div>
-                                                <div class="price mb-10">
-                                                    <span>$200-$280</span>
-                                                </div>
-                                            </div>
-                                            <div class="product__add-cart-s text-center">
-                                                <button type="button" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
-                                                Add to Cart
-                                                </button>
-                                                <button type="button" class="wc-checkout d-flex align-items-center justify-content-center w-100" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                    Quick View
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                                        <div class="product__item product__item-d">
-                                            <div class="product__thumb fix">
-                                                <div class="product-image w-img">
-                                                    <a href="product-details.html">
-                                                        <img src="{% static 'assets/img/product/tp-24.jpg' %}" alt="product">
-                                                    </a>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                        <i class="fal fa-eye"></i>
-                                                        <i class="fal fa-eye"></i>
-                                                    </a>
-                                                    <a href="#" class="icon-box icon-box-1">
-                                                        <i class="fal fa-heart"></i>
-                                                        <i class="fal fa-heart"></i>
-                                                    </a>
-                                                    <a href="#" class="icon-box icon-box-1">
-                                                        <i class="fal fa-layer-group"></i>
-                                                        <i class="fal fa-layer-group"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="product__content-3">
-                                                <h6><a href="product-details.html">Taffy Candy Laff Bites Net 4.2 oz</a></h6>
-                                                <div class="rating mb-5">
-                                                    <ul>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                    </ul>
-                                                    <span>(01 review)</span>
-                                                </div>
-                                                <div class="price mb-10">
-                                                    <span>$105-$150</span>
-                                                </div>
-                                            </div>
-                                            <div class="product__add-cart-s text-center">
-                                                <button type="button" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
-                                                Add to Cart
-                                                </button>
-                                                <button type="button" class="wc-checkout d-flex align-items-center justify-content-center w-100" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                    Quick View
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                                        <div class="product__item product__item-d">
-                                            <div class="product__thumb fix">
-                                                <div class="product-image w-img">
-                                                    <a href="product-details.html">
-                                                        <img src="{% static 'assets/img/product/tp-26.jpg' %}" alt="product">
-                                                    </a>
-                                                </div>
-                                                <div class="product-action">
-                                                    <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                        <i class="fal fa-eye"></i>
-                                                        <i class="fal fa-eye"></i>
-                                                    </a>
-                                                    <a href="#" class="icon-box icon-box-1">
-                                                        <i class="fal fa-heart"></i>
-                                                        <i class="fal fa-heart"></i>
-                                                    </a>
-                                                    <a href="#" class="icon-box icon-box-1">
-                                                        <i class="fal fa-layer-group"></i>
-                                                        <i class="fal fa-layer-group"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="product__content-3">
-                                                <h6><a href="product-details.html">Vinh Long Fresh Mangosteen 500g</a></h6>
-                                                <div class="rating mb-5">
-                                                    <ul>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                    </ul>
-                                                    <span>(01 review)</span>
-                                                </div>
-                                                <div class="price mb-10">
-                                                    <span>$110-$120</span>
-                                                </div>
-                                            </div>
-                                            <div class="product__add-cart-s text-center">
-                                                <button type="button" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
-                                                Add to Cart
-                                                </button>
-                                                <button type="button" class="wc-checkout d-flex align-items-center justify-content-center w-100" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                    Quick View
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    </div> 
+                                    {% endfor %}
+                                    
                                 </div>
                             </div>
-                        </div>
-                        <div class="tab-pane fade" id="FiveCol" role="tabpanel" aria-labelledby="FiveCol-tab">
-                            <div class="tp-wrapper-2">
-                                <div class="single-item-pd">
-                                    <div class="row align-items-center">
-                                        <div class="col-xl-9">
-                                            <div class="single-features-item single-features-item-df b-radius mb-20">
-                                                <div class="row  g-0 align-items-center">
-                                                    <div class="col-md-4">
-                                                        <div class="features-thum">
-                                                            <div class="features-product-image w-img">
-                                                                <a href="product-details.html"><img src="{% static 'assets/img/product/sm-1.jpg' %}" alt=""></a>
-                                                            </div>
-                                                            <div class="product__offer">
-                                                                <span class="discount">-15%</span>
-                                                            </div>
-                                                            <div class="product-action">
-                                                                <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                                    <i class="fal fa-eye"></i>
-                                                                    <i class="fal fa-eye"></i>
-                                                                </a>
-                                                                <a href="#" class="icon-box icon-box-1">
-                                                                    <i class="fal fa-heart"></i>
-                                                                    <i class="fal fa-heart"></i>
-                                                                </a>
-                                                                <a href="#" class="icon-box icon-box-1">
-                                                                    <i class="fal fa-layer-group"></i>
-                                                                    <i class="fal fa-layer-group"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-8">
-                                                        <div class="product__content product__content-d">
-                                                            <h6><a href="product-details.html">Classic Leather Backpack Daypack 2022</a></h6>
-                                                            <div class="rating mb-5">
-                                                                <ul class="rating-d">
-                                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                                </ul>
-                                                                <span>(01 review)</span>
-                                                            </div>
-                                                            <div class="features-des">
-                                                                <ul>
-                                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i> Bass and Stereo Sound.</a></li>
-                                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i> Display with 3088 x 1440 pixels resolution.</a></li>
-                                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i> Memory, Storage &amp; SIM: 12GB RAM, 256GB.</a></li>
-                                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i> Androi v10.0 Operating system.</a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3">
-                                            <div class="product-stock mb-15">
-                                                <h5>Availability: <span> 940 in stock</span></h5>
-                                                <h6>$220.00 - <del> $240.00</del></h6>
-                                            </div>
-                                            <div class="stock-btn ">
-                                                <button type="button" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
-                                                Add to Cart
-                                                </button>
-                                                <button type="button" class="wc-checkout d-flex align-items-center justify-content-center w-100" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                    Quick View
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="single-item-pd">
-                                    <div class="row align-items-center">
-                                        <div class="col-xl-9">
-                                            <div class="single-features-item single-features-item-df b-radius mb-20">
-                                                <div class="row  g-0 align-items-center">
-                                                    <div class="col-md-4">
-                                                        <div class="features-thum">
-                                                            <div class="features-product-image w-img">
-                                                                <a href="product-details.html"><img src="{% static 'assets/img/product/sm-2.jpg' %}" alt=""></a>
-                                                            </div>
-                                                            <div class="product-action">
-                                                                <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                                    <i class="fal fa-eye"></i>
-                                                                    <i class="fal fa-eye"></i>
-                                                                </a>
-                                                                <a href="#" class="icon-box icon-box-1">
-                                                                    <i class="fal fa-heart"></i>
-                                                                    <i class="fal fa-heart"></i>
-                                                                </a>
-                                                                <a href="#" class="icon-box icon-box-1">
-                                                                    <i class="fal fa-layer-group"></i>
-                                                                    <i class="fal fa-layer-group"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-8">
-                                                        <div class="product__content product__content-d">
-                                                            <h6><a href="product-details.html">Samsang Galaxy A70 128GB Dual-SIM</a></h6>
-                                                            <div class="rating mb-5">
-                                                                <ul class="rating-d">
-                                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                                </ul>
-                                                                <span>(01 review)</span>
-                                                            </div>
-                                                            <div class="features-des">
-                                                                <ul>
-                                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i> Bass and Stereo Sound.</a></li>
-                                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i> Display with 3088 x 1440 pixels resolution.</a></li>
-                                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i> Memory, Storage &amp; SIM: 12GB RAM, 256GB.</a></li>
-                                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i> Androi v10.0 Operating system.</a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3">
-                                            <div class="product-stock mb-15">
-                                                <h5>Availability: <span> 940 in stock</span></h5>
-                                                <h6>$216.00</h6>
-                                            </div>
-                                            <div class="stock-btn ">
-                                                <button type="button" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
-                                                Add to Cart
-                                                </button>
-                                                <button type="button" class="wc-checkout d-flex align-items-center justify-content-center w-100" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                    Quick View
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="single-item-pd">
-                                    <div class="row align-items-center">
-                                        <div class="col-xl-9">
-                                            <div class="single-features-item single-features-item-df b-radius mb-20">
-                                                <div class="row  g-0 align-items-center">
-                                                    <div class="col-md-4">
-                                                        <div class="features-thum">
-                                                            <div class="features-product-image w-img">
-                                                                <a href="product-details.html"><img src="{% static 'assets/img/product/sm-3.jpg' %}" alt=""></a>
-                                                            </div>
-                                                            <div class="product-action">
-                                                                <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                                    <i class="fal fa-eye"></i>
-                                                                    <i class="fal fa-eye"></i>
-                                                                </a>
-                                                                <a href="#" class="icon-box icon-box-1">
-                                                                    <i class="fal fa-heart"></i>
-                                                                    <i class="fal fa-heart"></i>
-                                                                </a>
-                                                                <a href="#" class="icon-box icon-box-1">
-                                                                    <i class="fal fa-layer-group"></i>
-                                                                    <i class="fal fa-layer-group"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-8">
-                                                        <div class="product__content product__content-d">
-                                                            <h6><a href="product-details.html">Coffee Maker AH240a Full Function</a></h6>
-                                                            <div class="rating mb-5">
-                                                                <ul class="rating-d">
-                                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                                </ul>
-                                                                <span>(01 review)</span>
-                                                            </div>
-                                                            <div class="features-des">
-                                                                <ul>
-                                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i> Bass and Stereo Sound.</a></li>
-                                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i> Display with 3088 x 1440 pixels resolution.</a></li>
-                                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i> Memory, Storage &amp; SIM: 12GB RAM, 256GB.</a></li>
-                                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i> Androi v10.0 Operating system.</a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3">
-                                            <div class="product-stock mb-15">
-                                                <h5>Availability: <span> 940 in stock</span></h5>
-                                                <h6>$125.00</h6>
-                                            </div>
-                                            <div class="stock-btn ">
-                                                <button type="button" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
-                                                Add to Cart
-                                                </button>
-                                                <button type="button" class="wc-checkout d-flex align-items-center justify-content-center w-100" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                    Quick View
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="single-item-pd">
-                                    <div class="row align-items-center">
-                                        <div class="col-xl-9">
-                                            <div class="single-features-item single-features-item-df b-radius mb-20">
-                                                <div class="row  g-0 align-items-center">
-                                                    <div class="col-md-4">
-                                                        <div class="features-thum">
-                                                            <div class="features-product-image w-img">
-                                                                <a href="product-details.html"><img src="{% static 'assets/img/product/sm-4.jpg' %}" alt=""></a>
-                                                            </div>
-                                                            <div class="product-action">
-                                                                <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                                    <i class="fal fa-eye"></i>
-                                                                    <i class="fal fa-eye"></i>
-                                                                </a>
-                                                                <a href="#" class="icon-box icon-box-1">
-                                                                    <i class="fal fa-heart"></i>
-                                                                    <i class="fal fa-heart"></i>
-                                                                </a>
-                                                                <a href="#" class="icon-box icon-box-1">
-                                                                    <i class="fal fa-layer-group"></i>
-                                                                    <i class="fal fa-layer-group"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-8">
-                                                        <div class="product__content product__content-d">
-                                                            <h6><a href="product-details.html">Imported Wooden Felt Cushion Chair</a></h6>
-                                                            <div class="rating mb-5">
-                                                                <ul class="rating-d">
-                                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                                </ul>
-                                                                <span>(01 review)</span>
-                                                            </div>
-                                                            <div class="features-des">
-                                                                <ul>
-                                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i> Bass and Stereo Sound.</a></li>
-                                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i> Display with 3088 x 1440 pixels resolution.</a></li>
-                                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i> Memory, Storage &amp; SIM: 12GB RAM, 256GB.</a></li>
-                                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i> Androi v10.0 Operating system.</a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3">
-                                            <div class="product-stock mb-15">
-                                                <h5>Availability: <span> 940 in stock</span></h5>
-                                                <h6>$160.00</h6>
-                                            </div>
-                                            <div class="stock-btn ">
-                                                <button type="button" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
-                                                Add to Cart
-                                                </button>
-                                                <button type="button" class="wc-checkout d-flex align-items-center justify-content-center w-100" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                    Quick View
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="single-item-pd">
-                                    <div class="row align-items-center">
-                                        <div class="col-xl-9">
-                                            <div class="single-features-item single-features-item-df b-radius mb-20">
-                                                <div class="row  g-0 align-items-center">
-                                                    <div class="col-md-4">
-                                                        <div class="features-thum">
-                                                            <div class="features-product-image w-img">
-                                                                <a href="product-details.html"><img src="{% static 'assets/img/product/sm-5.jpg' %}" alt=""></a>
-                                                            </div>
-                                                            <div class="product__offer">
-                                                                <span class="discount">-15%</span>
-                                                            </div>
-                                                            <div class="product-action">
-                                                                <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                                    <i class="fal fa-eye"></i>
-                                                                    <i class="fal fa-eye"></i>
-                                                                </a>
-                                                                <a href="#" class="icon-box icon-box-1">
-                                                                    <i class="fal fa-heart"></i>
-                                                                    <i class="fal fa-heart"></i>
-                                                                </a>
-                                                                <a href="#" class="icon-box icon-box-1">
-                                                                    <i class="fal fa-layer-group"></i>
-                                                                    <i class="fal fa-layer-group"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-8">
-                                                        <div class="product__content product__content-d">
-                                                            <h6><a href="product-details.html">Sunhouse Decorative Lights – Imported</a></h6>
-                                                            <div class="rating mb-5">
-                                                                <ul class="rating-d">
-                                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                                </ul>
-                                                                <span>(01 review)</span>
-                                                            </div>
-                                                            <div class="features-des">
-                                                                <ul>
-                                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i> Bass and Stereo Sound.</a></li>
-                                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i> Display with 3088 x 1440 pixels resolution.</a></li>
-                                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i> Memory, Storage &amp; SIM: 12GB RAM, 256GB.</a></li>
-                                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i> Androi v10.0 Operating system.</a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3">
-                                            <div class="product-stock mb-15">
-                                                <h5>Availability: <span> 940 in stock</span></h5>
-                                                <h6>$125.00</h6>
-                                            </div>
-                                            <div class="stock-btn ">
-                                                <button type="button" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
-                                                Add to Cart
-                                                </button>
-                                                <button type="button" class="wc-checkout d-flex align-items-center justify-content-center w-100" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                    Quick View
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="single-item-pd">
-                                    <div class="row align-items-center">
-                                        <div class="col-xl-9">
-                                            <div class="single-features-item single-features-item-df b-radius mb-20">
-                                                <div class="row  g-0 align-items-center">
-                                                    <div class="col-md-4">
-                                                        <div class="features-thum">
-                                                            <div class="features-product-image w-img">
-                                                                <a href="product-details.html"><img src="{% static 'assets/img/product/sm-6.jpg' %}" alt=""></a>
-                                                            </div>
-                                                            <div class="product-action">
-                                                                <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                                    <i class="fal fa-eye"></i>
-                                                                    <i class="fal fa-eye"></i>
-                                                                </a>
-                                                                <a href="#" class="icon-box icon-box-1">
-                                                                    <i class="fal fa-heart"></i>
-                                                                    <i class="fal fa-heart"></i>
-                                                                </a>
-                                                                <a href="#" class="icon-box icon-box-1">
-                                                                    <i class="fal fa-layer-group"></i>
-                                                                    <i class="fal fa-layer-group"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-8">
-                                                        <div class="product__content product__content-d">
-                                                            <h6><a href="product-details.html">Korea Stainless Steel Pot Set 5 Piecs</a></h6>
-                                                            <div class="rating mb-5">
-                                                                <ul class="rating-d">
-                                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                                </ul>
-                                                                <span>(01 review)</span>
-                                                            </div>
-                                                            <div class="features-des">
-                                                                <ul>
-                                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i> Bass and Stereo Sound.</a></li>
-                                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i> Display with 3088 x 1440 pixels resolution.</a></li>
-                                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i> Memory, Storage &amp; SIM: 12GB RAM, 256GB.</a></li>
-                                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i> Androi v10.0 Operating system.</a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3">
-                                            <div class="product-stock mb-15">
-                                                <h5>Availability: <span> 940 in stock</span></h5>
-                                                <h6>$99</h6>
-                                            </div>
-                                            <div class="stock-btn ">
-                                                <button type="button" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
-                                                Add to Cart
-                                                </button>
-                                                <button type="button" class="wc-checkout d-flex align-items-center justify-content-center w-100" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                    Quick View
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="single-item-pd">
-                                    <div class="row align-items-center">
-                                        <div class="col-xl-9">
-                                            <div class="single-features-item single-features-item-df b-radius mb-20">
-                                                <div class="row  g-0 align-items-center">
-                                                    <div class="col-md-4">
-                                                        <div class="features-thum">
-                                                            <div class="features-product-image w-img">
-                                                                <a href="product-details.html"><img src="{% static 'assets/img/product/sm-7.jpg' %}" alt=""></a>
-                                                            </div>
-                                                            <div class="product-action">
-                                                                <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                                    <i class="fal fa-eye"></i>
-                                                                    <i class="fal fa-eye"></i>
-                                                                </a>
-                                                                <a href="#" class="icon-box icon-box-1">
-                                                                    <i class="fal fa-heart"></i>
-                                                                    <i class="fal fa-heart"></i>
-                                                                </a>
-                                                                <a href="#" class="icon-box icon-box-1">
-                                                                    <i class="fal fa-layer-group"></i>
-                                                                    <i class="fal fa-layer-group"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-8">
-                                                        <div class="product__content product__content-d">
-                                                            <h6><a href="product-details.html">HP Stainless Steel Hot Water Bottle</a></h6>
-                                                            <div class="rating mb-5">
-                                                                <ul class="rating-d">
-                                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                                </ul>
-                                                                <span>(01 review)</span>
-                                                            </div>
-                                                            <div class="features-des">
-                                                                <ul>
-                                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i> Bass and Stereo Sound.</a></li>
-                                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i> Display with 3088 x 1440 pixels resolution.</a></li>
-                                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i> Memory, Storage &amp; SIM: 12GB RAM, 256GB.</a></li>
-                                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i> Androi v10.0 Operating system.</a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3">
-                                            <div class="product-stock mb-15">
-                                                <h5>Availability: <span> 940 in stock</span></h5>
-                                                <h6>$125.00</h6>
-                                            </div>
-                                            <div class="stock-btn ">
-                                                <button type="button" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
-                                                Add to Cart
-                                                </button>
-                                                <button type="button" class="wc-checkout d-flex align-items-center justify-content-center w-100" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                    Quick View
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="single-item-pd">
-                                    <div class="row align-items-center">
-                                        <div class="col-xl-9">
-                                            <div class="single-features-item single-features-item-df b-radius mb-20">
-                                                <div class="row  g-0 align-items-center">
-                                                    <div class="col-md-4">
-                                                        <div class="features-thum">
-                                                            <div class="features-product-image w-img">
-                                                                <a href="product-details.html"><img src="{% static 'assets/img/product/sm-8.jpg' %}" alt=""></a>
-                                                            </div>
-                                                            <div class="product-action">
-                                                                <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                                    <i class="fal fa-eye"></i>
-                                                                    <i class="fal fa-eye"></i>
-                                                                </a>
-                                                                <a href="#" class="icon-box icon-box-1">
-                                                                    <i class="fal fa-heart"></i>
-                                                                    <i class="fal fa-heart"></i>
-                                                                </a>
-                                                                <a href="#" class="icon-box icon-box-1">
-                                                                    <i class="fal fa-layer-group"></i>
-                                                                    <i class="fal fa-layer-group"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-8">
-                                                        <div class="product__content product__content-d">
-                                                            <h6><a href="product-details.html">The North Face Womens Resolve 2 Jack</a></h6>
-                                                            <div class="rating mb-5">
-                                                                <ul class="rating-d">
-                                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                                    <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                                                </ul>
-                                                                <span>(01 review)</span>
-                                                            </div>
-                                                            <div class="features-des">
-                                                                <ul>
-                                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i> Bass and Stereo Sound.</a></li>
-                                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i> Display with 3088 x 1440 pixels resolution.</a></li>
-                                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i> Memory, Storage &amp; SIM: 12GB RAM, 256GB.</a></li>
-                                                                    <li><a href="product-details.html"><i class="fas fa-circle"></i> Androi v10.0 Operating system.</a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3">
-                                            <div class="product-stock mb-15">
-                                                <h5>Availability: <span> 940 in stock</span></h5>
-                                                <h6>$140.00</h6>
-                                            </div>
-                                            <div class="stock-btn ">
-                                                <button type="button" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
-                                                Add to Cart
-                                                </button>
-                                                <button type="button" class="wc-checkout d-flex align-items-center justify-content-center w-100" data-bs-toggle="modal" data-bs-target="#productModalId">
-                                                    Quick View
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        </div>   
                     </div>
+
                     <div class="tp-pagination text-center">
                         <div class="row">
                             <div class="col-xl-12">
@@ -1800,6 +166,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -1807,7 +174,8 @@
     <!-- shop-area-end -->
 
     <!-- shop modal start -->
-    <div class="modal fade" id="productModalId" tabindex="-1" role="dialog" aria-hidden="true">
+    {% for i in products %}
+    <div class="modal fade" id="productModalId-{{ forloop.counter }}" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered product__modal" role="document">
             <div class="modal-content">
                 <div class="product__modal-wrapper p-relative">
@@ -1816,123 +184,122 @@
                     </div>
                     <div class="product__modal-inner">
                         <div class="row">
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                            <div class="product__modal-box">
-                                <div class="tab-content" id="modalTabContent">
-                                    <div class="tab-pane fade show active" id="nav1" role="tabpanel" aria-labelledby="nav1-tab">
-                                        <div class="product__modal-img w-img">
-                                            <img src="{% static 'assets/img/quick-view/quick-view-1.jpg' %}" alt="">
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                <div class="product__modal-box">
+                                    <div class="tab-content" id="modalTabContent">
+                                        <div class="tab-pane fade show active" id="nav-first" role="tabpanel"
+                                            aria-labelledby="nav-first-tab">
+                                            <div class="product__modal-img w-img">
+                                                <img src="{{ i.featured_image }}" alt="">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="nav2" role="tabpanel" aria-labelledby="nav2-tab">
-                                        <div class="product__modal-img w-img">
-                                            <img src="{% static 'assets/img/quick-view/quick-view-2.jpg' %}" alt="">
+
+                                        {% for j in i.aditional_image_set.all %}
+                                        <div class="tab-pane fade  " id="nav-{{ j.id }}" role="tabpanel"
+                                            aria-labelledby="nav-{{ j.id }}-tab">
+                                            <div class="product__modal-img w-img">
+                                                <img src="{{ j.image }}" style="width: 628px; height: 628px;" alt="">
+                                            </div>
                                         </div>
+                                        {% endfor %}
+
+
                                     </div>
-                                    <div class="tab-pane fade" id="nav3" role="tabpanel" aria-labelledby="nav3-tab">
-                                        <div class="product__modal-img w-img">
-                                            <img src="{% static 'assets/img/quick-view/quick-view-3.jpg' %}" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="nav4" role="tabpanel" aria-labelledby="nav4-tab">
-                                        <div class="product__modal-img w-img">
-                                            <img src="{% static 'assets/img/quick-view/quick-view-4.jpg' %}" alt="">
-                                        </div>
-                                    </div>
-                                    </div>
-                                <ul class="nav nav-tabs" id="modalTab" role="tablist">
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link active" id="nav1-tab" data-bs-toggle="tab" data-bs-target="#nav1" type="button" role="tab" aria-controls="nav1" aria-selected="true">
-                                            <img src="{% static 'assets/img/quick-view/quick-nav-1.jpg' %}" alt="">
-                                        </button>
-                                    </li>
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="nav2-tab" data-bs-toggle="tab" data-bs-target="#nav2" type="button" role="tab" aria-controls="nav2" aria-selected="false">
-                                        <img src="{% static 'assets/img/quick-view/quick-nav-2.jpg' %}" alt="">
-                                        </button>
-                                    </li>
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="nav3-tab" data-bs-toggle="tab" data-bs-target="#nav3" type="button" role="tab" aria-controls="nav3" aria-selected="false">
-                                        <img src="{% static 'assets/img/quick-view/quick-nav-3.jpg' %}" alt="">
-                                        </button>
-                                    </li>
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="nav4-tab" data-bs-toggle="tab" data-bs-target="#nav4" type="button" role="tab" aria-controls="nav4" aria-selected="false">
-                                        <img src="{% static 'assets/img/quick-view/quick-nav-4.jpg' %}" alt="">
-                                        </button>
-                                    </li>
-                                    </ul>
-                            </div>
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                            <div class="product__modal-content">
-                                <h4><a href="product-details.html">Samsung C49J89: £875, Debenhams Plus</a></h4>
-                                <div class="product__review d-sm-flex">
-                                    <div class="rating rating__shop mb-10 mr-30">
-                                    <ul>
-                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                    </ul>
-                                    </div>
-                                    <div class="product__add-review mb-15">
-                                    <span>01 review</span>
-                                    </div>
-                                </div>
-                                <div class="product__price">
-                                    <span>$109.00 – $307.00</span>
-                                </div>
-                                <div class="product__modal-des mt-20 mb-15">
-                                    <ul>
-                                        <li><a href="#"><i class="fas fa-circle"></i> Bass and Stereo Sound.</a></li>
-                                        <li><a href="#"><i class="fas fa-circle"></i> Display with 3088 x 1440 pixels resolution.</a></li>
-                                        <li><a href="#"><i class="fas fa-circle"></i> Memory, Storage & SIM: 12GB RAM, 256GB.</a></li>
-                                        <li><a href="#"><i class="fas fa-circle"></i> Androi v10.0 Operating system.</a></li>
-                                    </ul>
-                                </div>
-                                <div class="product__stock mb-20">
-                                    <span class="mr-10">Availability :</span>
-                                    <span>1795 in stock</span>
-                                </div>
-                                <div class="product__modal-form">
-                                    <form action="#">
-                                    <div class="pro-quan-area d-lg-flex align-items-center">
-                                        <div class="product-quantity mr-20 mb-25">
-                                            <div class="cart-plus-minus p-relative"><input type="text" value="1" /></div>
-                                        </div>
-                                        <div class="pro-cart-btn mb-25">
-                                            <button class="cart-btn" type="submit">Add to cart</button>
-                                        </div>
-                                    </div>
-                                    </form>
-                                </div>
-                                <div class="product__stock mb-30">
-                                    <ul>
-                                        <li><a href="#">
-                                            <span class="sku mr-10">SKU:</span>
-                                            <span>Samsung C49J89: £875, Debenhams Plus</span></a>
+
+
+
+                                    <ul class="nav nav-tabs" id="modalTab" role="tablist">
+                                        <li class="nav-item" role="presentation">
+
+                                            <button class="nav-link active" id="nav-first-tab" data-bs-toggle="tab"
+                                                data-bs-target="#nav-first" type="button" role="tab"
+                                                aria-controls="nav-first" aria-selected="true">
+                                                <img src="{{ i.featured_image }}" style="width: 85px; height: 85 px;"
+                                                    alt="">
+                                            </button>
                                         </li>
-                                        <li><a href="#">
-                                            <span class="cat mr-10">Categories:</span>
-                                            <span>iPhone, Tablets</span></a>
+                                        {% for add in i.aditional_image_set.all %}
+                                        <li class="nav-item" role="presentation">
+
+                                            <button class="nav-link active " id="nav-{{ add.id }}-tab"
+                                                data-bs-toggle="tab" data-bs-target="#nav-{{ add.id }}" type="button"
+                                                role="tab" aria-controls="nav-{{ add.id }}" aria-selected="true">
+                                                <img src="{{ add.image }}" style="width: 85px; height: 85 px;" alt="">
+                                            </button>
                                         </li>
-                                        <li><a href="#">
-                                            <span class="tag mr-10">Tags:</span>
-                                            <span>Smartphone, Tablets</span></a>
-                                        </li>
+                                        {% endfor %}
                                     </ul>
+
                                 </div>
                             </div>
-                        </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                <div class="product__modal-content">
+                                    <h4><a href="product-details.html">{{ i.title| slice:":25" }}.. </a></h4>
+                                    <div class="product__review d-sm-flex">
+                                        <!-- {% comment %} <div class="rating rating__shop mb-10 mr-30">
+                                            <ul>
+                                                <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="product__add-review mb-15">
+                                            <span>01 review</span>
+                                        </div> {% endcomment %} -->
+                                    </div>
+                                    <div class="product__price">
+                                        <del>&#8377;{{ i.price }}</del>
+                                        <span>&#8377;{% discount_price i.price i.discount %}</span>
+
+                                    </div>
+                                    <div class="product__modal-des mt-20 mb-15">
+                                         <ul>
+                                            <li><a href="#"><i class="fas fa-circle"></i> {{ i.description| safe| truncatewords_html:30  }}</a>
+                                            </li> 
+                                        </ul>
+                                    </div>
+                                    <div class="product__stock mb-20">
+                                        <span class="mr-10">Availabile :</span>
+                                        <span>{{ i.available }} in stock</span>
+                                    </div>
+                                    <div class="product__modal-form">
+                                        <form action="#">
+                                            <div class="pro-quan-area d-lg-flex align-items-center">
+                                                <!-- <div class="product-quantity mr-20 mb-25">
+                                                    <div class="cart-plus-minus p-relative"><input type="text"
+                                                            value="1" /></div>
+                                                </div> -->
+                                                <div class="pro-cart-btn mb-25">
+                                                    <button class="cart-btn" type="submit">Add to cart</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="product__stock mb-30">
+                                        {% for k in i.aditional_information_set.all %}
+                                        <ul>
+                                            <li><a href="#">
+                                                    <span class="sku mr-10">{{ k.title }}</span>
+                                                    <span>{{ k.spec }}</span></a>
+                                            </li>                                      
+                                        </ul>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    {% endfor %}
     <!-- shop modal end -->
+    
+
+     
 
 </main>
 
