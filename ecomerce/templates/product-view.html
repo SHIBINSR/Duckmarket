@@ -5,7 +5,7 @@
 
 <main>
     <!-- breadcrumb__area-start -->
-     <br>
+    <br>
     <!-- breadcrumb__area-end -->
 
     <!-- shop-area-start -->
@@ -17,12 +17,14 @@
                         <h5 class="pt-title">Product categories</h5>
                         <div class="widget-category-list mt-20">
                             {% for cat in category %}
-                                <div class="single-widget-category">
-                                    <input class="checker" type="checkbox" id="cat-item-{{ forloop.counter }}" name="{{ cat.id }}" value="{{ cat.id }}">
-                                    <label for="cat-item-{{ forloop.conter }}">{{ cat.title }} <span>({{ cat.products_set.all.count }})</span> </label>
-                                </div>
-        
-                             {% endfor %}
+                            <div class="single-widget-category">
+                                <input class="checker" type="checkbox" id="cat-item-{{ forloop.counter }}"
+                                    name="{{ cat.id }}" value="{{ cat.id }}">
+                                <label for="cat-item-{{ forloop.conter }}">{{ cat.title }} <span>({{
+                                        cat.products_set.all.count }})</span> </label>
+                            </div>
+
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
@@ -48,16 +50,20 @@
                                         <div class="product__col">
                                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                                 <li class="nav-item" role="presentation">
-                                                  <button class="nav-link active" id="FourCol-tab" data-bs-toggle="tab" data-bs-target="#FourCol" type="button" role="tab" aria-controls="FourCol" aria-selected="true">
-                                                    <i class="fal fa-th"></i>
-                                                  </button>
+                                                    <button class="nav-link active" id="FourCol-tab"
+                                                        data-bs-toggle="tab" data-bs-target="#FourCol" type="button"
+                                                        role="tab" aria-controls="FourCol" aria-selected="true">
+                                                        <i class="fal fa-th"></i>
+                                                    </button>
                                                 </li>
                                                 <li class="nav-item" role="presentation">
-                                                  <button class="nav-link" id="FiveCol-tab" data-bs-toggle="tab" data-bs-target="#FiveCol" type="button" role="tab" aria-controls="FiveCol" aria-selected="false">
-                                                    <i class="fal fa-list"></i>
-                                                  </button>
+                                                    <button class="nav-link" id="FiveCol-tab" data-bs-toggle="tab"
+                                                        data-bs-target="#FiveCol" type="button" role="tab"
+                                                        aria-controls="FiveCol" aria-selected="false">
+                                                        <i class="fal fa-list"></i>
+                                                    </button>
                                                 </li>
-                                              </ul>
+                                            </ul>
                                         </div>
                                         <div class="product__result pl-60">
                                             <p>Showing 1-20 of 29 relults</p>
@@ -84,10 +90,11 @@
                                     </div>
                                 </div>
                             </div>
-                    </div>
+                        </div>
                     </div>
                     <div class="tab-content" id="productGridTabContent">
-                        <div class="tab-pane fade  show active" id="FourCol" role="tabpanel" aria-labelledby="FourCol-tab">
+                        <div class="tab-pane fade  show active" id="FourCol" role="tabpanel"
+                            aria-labelledby="FourCol-tab">
                             <div class="tp-wrapper">
                                 <div class="row g-0">
 
@@ -97,41 +104,46 @@
                                             <div class="product__thumb fix">
                                                 <div class="product-image w-img">
                                                     <a href="product-details.html">
-                                                        <img src="{{ pro.featured_image }}" style="height: 300px; width: 242px;" alt="product">
+                                                        <img src="{{ pro.featured_image }}"
+                                                            style="height: 300px; width: 242px;" alt="product">
                                                     </a>
                                                 </div>
                                                 <div class="product-action">
-                                                    <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModalId">
+                                                    <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal"
+                                                        data-bs-target="#productModalId">
                                                         <i class="fal fa-eye"></i>
                                                         <i class="fal fa-eye"></i>
                                                     </a>
-                                                     
+
                                                 </div>
                                             </div>
                                             <div class="product__content-3">
                                                 <h6><a href="#">{{ pro.title| slice:":25" }}</a></h6>
-                        
+
                                                 <div class="price mb-10">
                                                     <del>&#8377;{{ pro.price }}</del>
-                                                   <b>&#8377;{% discount_price pro.price pro.discount %}</b>
-                                                    
+                                                    <b>&#8377;{% discount_price pro.price pro.discount %}</b>
+
                                                 </div>
                                             </div>
                                             <div class="product__add-cart-s text-center">
-                                                <button type="button" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
-                                                Add to Cart
+                                                <button type="button"
+                                                    class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
+                                                    Add to Cart
                                                 </button>
-                                                <button type="button" class="wc-checkout d-flex align-items-center justify-content-center w-100" data-bs-toggle="modal" data-bs-target="#productModalId">
+                                                <button type="button"
+                                                    class="wc-checkout d-flex align-items-center justify-content-center w-100"
+                                                    data-bs-toggle="modal" data-bs-target="#productModalId">
                                                     Quick View
                                                 </button>
                                             </div>
                                         </div>
-                                    </div> 
+                                    </div>
                                     {% endfor %}
-                                    
+
                                 </div>
                             </div>
-                        </div>   
+                        </div>
                     </div>
 
                     <div class="tp-pagination text-center">
@@ -139,30 +151,30 @@
                             <div class="col-xl-12">
                                 <div class="basic-pagination pt-30 pb-30">
                                     <nav>
-                                       <ul>
-                                          <li>
-                                             <a href="shop.html" class="active">1</a>
-                                          </li>
-                                          <li>
-                                             <a href="shop.html">2</a>
-                                          </li>
-                                          <li>
-                                             <a href="shop.html">3</a>
-                                          </li>
-                                         <li>
-                                            <a href="shop.html">5</a>
-                                         </li>
-                                         <li>
-                                            <a href="shop.html">6</a>
-                                         </li>
-                                          <li>
-                                             <a href="shop.html">
-                                                <i class="fal fa-angle-double-right"></i>
-                                             </a>
-                                          </li>
-                                       </ul>
-                                     </nav>
-                                 </div>
+                                        <ul>
+                                            <li>
+                                                <a href="shop.html" class="active">1</a>
+                                            </li>
+                                            <li>
+                                                <a href="shop.html">2</a>
+                                            </li>
+                                            <li>
+                                                <a href="shop.html">3</a>
+                                            </li>
+                                            <li>
+                                                <a href="shop.html">5</a>
+                                            </li>
+                                            <li>
+                                                <a href="shop.html">6</a>
+                                            </li>
+                                            <li>
+                                                <a href="shop.html">
+                                                    <i class="fal fa-angle-double-right"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -255,9 +267,10 @@
 
                                     </div>
                                     <div class="product__modal-des mt-20 mb-15">
-                                         <ul>
-                                            <li><a href="#"><i class="fas fa-circle"></i> {{ i.description| safe| truncatewords_html:30  }}</a>
-                                            </li> 
+                                        <ul>
+                                            <li><a href="#"><i class="fas fa-circle"></i> {{ i.description| safe|
+                                                    truncatewords_html:30 }}</a>
+                                            </li>
                                         </ul>
                                     </div>
                                     <div class="product__stock mb-20">
@@ -283,7 +296,7 @@
                                             <li><a href="#">
                                                     <span class="sku mr-10">{{ k.title }}</span>
                                                     <span>{{ k.spec }}</span></a>
-                                            </li>                                      
+                                            </li>
                                         </ul>
                                         {% endfor %}
                                     </div>
@@ -297,11 +310,10 @@
     </div>
     {% endfor %}
     <!-- shop modal end -->
-    
 
-     
+
+
 
 </main>
 
 {% endblock %}
- 
