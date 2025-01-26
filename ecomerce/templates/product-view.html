@@ -18,10 +18,8 @@
                         <div class="widget-category-list mt-20">
                             {% for cat in category %}
                             <div class="single-widget-category">
-                                <input class="checker" type="checkbox" id="cat-item-{{ forloop.counter }}"
-                                    name="{{ cat.id }}" value="{{ cat.id }}">
-                                <label for="cat-item-{{ forloop.conter }}">{{ cat.title }} <span>({{
-                                        cat.products_set.all.count }})</span> </label>
+                                <input class="checker" type="checkbox" id="cat-item-{{ cat.id }}" value="{{cat.id}}">
+                                <label for="cat-item-{{ cat.id  }}">{{ cat.title }} <span> ({{cat.products_set.all.count}})</span> </label>
                             </div>
 
                             {% endfor %}
@@ -47,48 +45,13 @@
                             <div class="row align-items-center">
                                 <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
                                     <div class="product__filter d-sm-flex align-items-center">
-                                        <div class="product__col">
-                                            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                                <li class="nav-item" role="presentation">
-                                                    <button class="nav-link active" id="FourCol-tab"
-                                                        data-bs-toggle="tab" data-bs-target="#FourCol" type="button"
-                                                        role="tab" aria-controls="FourCol" aria-selected="true">
-                                                        <i class="fal fa-th"></i>
-                                                    </button>
-                                                </li>
-                                                <li class="nav-item" role="presentation">
-                                                    <button class="nav-link" id="FiveCol-tab" data-bs-toggle="tab"
-                                                        data-bs-target="#FiveCol" type="button" role="tab"
-                                                        aria-controls="FiveCol" aria-selected="false">
-                                                        <i class="fal fa-list"></i>
-                                                    </button>
-                                                </li>
-                                            </ul>
-                                        </div>
+
                                         <div class="product__result pl-60">
-                                            <p>Showing 1-20 of 29 relults</p>
+                                            <p>Showing {{ products.count }} relults</p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
-                                    <div class="product__filter-right d-flex align-items-center justify-content-md-end">
-                                        <div class="product__sorting product__show-no">
-                                            <select>
-                                                <option>10</option>
-                                                <option>20</option>
-                                                <option>30</option>
-                                                <option>40</option>
-                                            </select>
-                                        </div>
-                                        <div class="product__sorting product__show-position ml-20">
-                                            <select>
-                                                <option>Latest</option>
-                                                <option>New</option>
-                                                <option>Up comeing</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -96,7 +59,7 @@
                         <div class="tab-pane fade  show active" id="FourCol" role="tabpanel"
                             aria-labelledby="FourCol-tab">
                             <div class="tp-wrapper">
-                                <div class="row g-0">
+                                <div class="row g-0" id="product-container">
 
                                     {% for pro in products %}
                                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
@@ -316,4 +279,36 @@
 
 </main>
 
+{% endblock %}
+
+{% block js %}
+<script>
+    let url = "{% url 'Filter_category' %}"
+
+    let procuredata = async (category) => {
+        let res = await fetch(url, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': '{{ csrf_token }}'
+            },
+            body: JSON.stringify({ category: category })
+        })
+        return await res.json()
+    }
+
+    let container = document.getElementById('product-container')
+
+    let checkboxes = document.querySelectorAll('.checker');
+    checkboxes.forEach((checks) => {
+        checks.addEventListener("change", async (events) => {
+            let checkboxearray = Array.from(checkboxes).filter((checker) => checker.checked).map((checker) => checker.value)
+            let data = await procuredata(checkboxearray)
+            console.log(data)
+            container.innerHTML = data.data
+        })
+    })
+
+
+</script>
 {% endblock %}
