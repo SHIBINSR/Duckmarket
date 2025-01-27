@@ -18,7 +18,7 @@
                         <div class="widget-category-list mt-20">
                             {% for cat in category %}
                             <div class="single-widget-category">
-                                <input class="checker" type="checkbox" id="cat-item-{{ cat.id }}" value="{{cat.id}}">
+                                <input class="checker" type="checkbox" value="{{cat.id}}" id="cat-item-{{ cat.id }}"  >
                                 <label for="cat-item-{{ cat.id  }}">{{ cat.title }} <span> ({{cat.products_set.all.count}})</span> </label>
                             </div>
 
@@ -66,7 +66,7 @@
                                         <div class="product__item product__item-d">
                                             <div class="product__thumb fix">
                                                 <div class="product-image w-img">
-                                                    <a href="product-details.html">
+                                                    <a href="{{ pro.slug }}">
                                                         <img src="{{ pro.featured_image }}"
                                                             style="height: 300px; width: 242px;" alt="product">
                                                     </a>
@@ -209,7 +209,7 @@
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                                 <div class="product__modal-content">
-                                    <h4><a href="product-details.html">{{ i.title| slice:":25" }}.. </a></h4>
+                                    <h4><a href="{{ i.slug }}">{{ i.title| slice:":25" }}.. </a></h4>
                                     <div class="product__review d-sm-flex">
                                         <!-- {% comment %} <div class="rating rating__shop mb-10 mr-30">
                                             <ul>
@@ -285,29 +285,32 @@
 <script>
     let url = "{% url 'Filter_category' %}"
 
-    let procuredata = async (category) => {
-        let res = await fetch(url, {
+    let procuredata = async (categories)=>{
+        let res = await fetch(url,{
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
-                'X-CSRFToken': '{{ csrf_token }}'
+                "X-CSRFToken": '{{ csrf_token }}'
             },
-            body: JSON.stringify({ category: category })
+            body: JSON.stringify({
+                categories : categories
+            })
         })
-        return await res.json()
+        return res.json()
     }
 
-    let container = document.getElementById('product-container')
+    let container = document.getElementById("product-container")
 
-    let checkboxes = document.querySelectorAll('.checker');
+    let checkboxes = document.querySelectorAll(".checker")
     checkboxes.forEach((checks) => {
-        checks.addEventListener("change", async (events) => {
-            let checkboxearray = Array.from(checkboxes).filter((checker) => checker.checked).map((checker) => checker.value)
-            let data = await procuredata(checkboxearray)
-            console.log(data)
+        checks.addEventListener("change",async (event)=>{
+            let checkboxarray = Array.from(checkboxes).filter((checker)=>checker.checked).map((checker)=>checker.value)
+            let data = await procuredata(checkboxarray)
             container.innerHTML = data.data
+            console.log(data)
         })
     })
+
 
 
 </script>
