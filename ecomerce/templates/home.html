@@ -178,7 +178,7 @@
                             <div class="product__item swiper-slide">
                                 <div class="product__thumb fix">
                                     <div class="product-image w-img">
-                                        <a href="{{ product.slug }}">
+                                        <a href="{% url 'Productdetails' i.slug %}">
                                             <img src="{{ product.featured_image }}" style="height: 300px; width: 242px;"
                                                 alt="product">
                                         </a>
@@ -302,7 +302,7 @@
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                                 <div class="product__modal-content">
-                                    <h4><a href="product-details.html">{{ i.title| slice:":25" }}.. </a></h4>
+                                    <h4><a href="{% url 'Productdetails' i.slug %}">{{ i.title| slice:":25" }}.. </a></h4>
                                     <div class="product__review d-sm-flex">
                                         <!-- {% comment %} <div class="rating rating__shop mb-10 mr-30">
                                             <ul>

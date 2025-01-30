@@ -56,6 +56,7 @@ def filter_category(request):
           
         
 def product_details(request):
+    
     return render(request,"product-details.html")
      
      
