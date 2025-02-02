@@ -178,7 +178,7 @@
                             <div class="product__item swiper-slide">
                                 <div class="product__thumb fix">
                                     <div class="product-image w-img">
-                                        <a href="{% url 'Productdetails' i.slug %}">
+                                        <a href="{% url 'Productdetails' product.slug  %}">
                                             <img src="{{ product.featured_image }}" style="height: 300px; width: 242px;"
                                                 alt="product">
                                         </a>
@@ -196,7 +196,7 @@
                                     </div>
                                 </div>
                                 <div class="product__content">
-                                    <h6><a href="#">{{ product.title|slice:":20" }}..</a></h6>
+                                    <h6><a href="{% url 'Productdetails' product.slug  %}">{{ product.title|slice:":20" }}..</a></h6>
                                     <!-- <div class="rating mb-5">
                                         <ul>
                                             <li><a href="#"><i class="fal fa-star"></i></a></li>
@@ -272,7 +272,7 @@
                                         {% endfor %}
 
 
-                                    </div>
+                                    
 
 
 
@@ -281,7 +281,7 @@
 
                                             <button class="nav-link active" id="nav-first-tab" data-bs-toggle="tab"
                                                 data-bs-target="#nav-first" type="button" role="tab"
-                                                aria-controls="nav-first" aria-selected="true">
+                                                aria-controls="nav-first" aria-selected="false">
                                                 <img src="{{ i.featured_image }}" style="width: 85px; height: 85 px;"
                                                     alt="">
                                             </button>
@@ -291,18 +291,19 @@
 
                                             <button class="nav-link active " id="nav-{{ add.id }}-tab"
                                                 data-bs-toggle="tab" data-bs-target="#nav-{{ add.id }}" type="button"
-                                                role="tab" aria-controls="nav-{{ add.id }}" aria-selected="true">
+                                                role="tab" aria-controls="nav-{{ add.id }}" aria-selected="false">
                                                 <img src="{{ add.image }}" style="width: 85px; height: 85 px;" alt="">
                                             </button>
                                         </li>
                                         {% endfor %}
                                     </ul>
+                                </div>
 
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                                 <div class="product__modal-content">
-                                    <h4><a href="{% url 'Productdetails' i.slug %}">{{ i.title| slice:":25" }}.. </a></h4>
+                                    <h4><a href="{% url 'Productdetails' i.slug  %}">{{ i.title| slice:":25" }}.. </a></h4>
                                     <div class="product__review d-sm-flex">
                                         <!-- {% comment %} <div class="rating rating__shop mb-10 mr-30">
                                             <ul>

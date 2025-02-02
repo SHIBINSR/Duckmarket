@@ -13,8 +13,8 @@
                         <img src="{% static 'assets/img/banner/404.png' %}" alt="">
                     </div>
                     <div class="error-content">
-                        <h5>Page Not Found</h5>
-                        <p>Sorry, the page you've requested is not available. Please try searching for something else or return to Homepage.</p>
+                        <h5>Product Not Found</h5>
+                        <p>Sorry, the product is not available. Please try searching for something else or return to Homepage.</p>
                         <div class="error-button">
                             <a href="#" class="error-btn">Return to Homepage</a>
                         </div>
@@ -32,7 +32,7 @@
     <div class="product__item product__item-d">
         <div class="product__thumb fix">
             <div class="product-image w-img">
-                <a href="{% url 'Productdetails'  %}">
+                <a href="{% url 'Productdetails' pro.slug  %}">
                     <img src="{{ pro.featured_image }}" style="height: 300px; width: 242px;" alt="product">
                 </a>
             </div>

@@ -55,9 +55,13 @@ def filter_category(request):
                          "data":data})
           
         
-def product_details(request):
-    
-    return render(request,"product-details.html")
+def product_details(request,slug):
+    product = Products.objects.get(slug=slug)
+    context ={
+        'product':product,
+        
+    }
+    return render(request,"product-details.html",context)
      
      
          
