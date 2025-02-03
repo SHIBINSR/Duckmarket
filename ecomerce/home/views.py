@@ -25,10 +25,12 @@ def home(request):
     return render(request,"home.html",context)
 
 def productview(request):
+    main_category = MainCategory.objects.all()
     category = Category.objects.all()
     product = Products.objects.all()
     
     context = {
+        "maincategory":main_category,
         "category":category,
         'products':product
     }
@@ -63,9 +65,25 @@ def product_details(request,slug):
     }
     return render(request,"product-details.html",context)
      
-     
+def about(request):
+    main_category = MainCategory.objects.all()
+    context = {
+        "maincategory":main_category,  
+    }
+    return render(request,"about.html",context)
          
          
-
+def blog(request):
+    main_category = MainCategory.objects.all()
+    context = {
+        "maincategory":main_category,
+    }
+    return render(request,"blog.html",context)
       
            
+def blog_details(request):
+    main_category = MainCategory.objects.all()
+    context = {
+        "maincategory":main_category, 
+    }
+    return render(request,"blog-details.html",context)

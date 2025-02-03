@@ -224,10 +224,10 @@
                                               <a href="#"> {{ cat1.title }} <i class="far fa-angle-down"></i></a>                
                                               <ul class="mega-menu">
                                                 {% for cat2 in cat1.category_set.all %}
-                                                  <li><a href="#">{{ cat2.title }}</a>
+                                                  <li><a href="{% url 'Productview' %}">{{ cat2.title }}</a>
                                                       <ul class="mega-item">
                                                         {% for cat3 in cat2.subcategory_set.all %}
-                                                          <li><a href="#">{{ cat3.title }}</a></li>
+                                                          <li><a href="{% url 'Productview' %}">{{ cat3.title }}</a></li>
                                                         {% endfor %}  
                                                       </ul>
                                                   </li>  
@@ -250,145 +250,33 @@
                           <nav>
                               <ul>
                                   <li>
-                                      <a href="#" class="active">Home <i class="far fa-angle-down"></i></a>
-                                      <ul class="megamenu-1">
-                                          <li><a href="#">Home Pages</a>
-                                              <ul class="mega-item">
-                                                  <li><a href="index.html" class="active">Home One</a></li>
-                                                  <li><a href="index-2.html">Home Two</a></li>
-                                                  <li><a href="index-3.html">Home Three</a></li>
-                                                  <li><a href="product-details.html">Shop 3 Column</a></li>
-                                                  <li><a href="product-details.html">Shop 4 Column</a></li>
-                                              </ul>
-                                          </li>
-                                          <li><a href="#">Product Pages</a>
-                                              <ul class="mega-item">
-                                                  <li><a href="product-details.html">Product Details</a></li>
-                                                  <li><a href="product-details.html">Product V2</a></li>
-                                                  <li><a href="product-details.html">Product V3</a></li>
-                                                  <li><a href="product-details.html">Varriable Product</a></li>
-                                                  <li><a href="product-details.html">External Product</a></li>
-                                              </ul>
-                                          </li>
-                                          <li><a href="#">Other Pages</a>
-                                              <ul class="mega-item">
-                                                  <li><a href="product-details.html">wishlist</a></li>
-                                                  <li><a href="product-details.html">Shopping Cart</a></li>
-                                                  <li><a href="product-details.html">Checkout</a></li>
-                                                  <li><a href="product-details.html">Login</a></li>
-                                                  <li><a href="product-details.html">Register</a></li>
-                                              </ul>
-                                          </li>
-                                          <li><a href="shop.html">Phone &amp; Tablets</a>
-                                              <ul class="mega-item">
-                                                  <li><a href="product-details.html">Catagory 1</a></li>
-                                                  <li><a href="product-details.html">Catagory 2</a></li>
-                                                  <li><a href="product-details.html">Catagory 3</a></li>
-                                                  <li><a href="product-details.html">Catagory 4</a></li>
-                                              </ul>
-                                          </li>
-                                          <li><a href="shop.html">Phone &amp; Tablets</a>
-                                              <ul class="mega-item">
-                                                  <li><a href="product-details.html">Catagory 1</a></li>
-                                                  <li><a href="product-details.html">Catagory 2</a></li>
-                                                  <li><a href="product-details.html">Catagory 3</a></li>
-                                                  <li><a href="product-details.html">Catagory 4</a></li>
-                                              </ul>
-                                          </li>
-                                      </ul>
+                                      <a href="{% url 'Home' %}" class="active">Home  </a>                      
                                   </li>
-                                  <li><a href="about.html">About Us</a></li>
-                                  <li class="has-mega"><a href="shop.html">Shop <i class="far fa-angle-down"></i></a>
-                                      <div class="mega-menu">
-                                          <div class="container container-mega">
-                                              <ul>
-                                                  <li>
-                                                      <ul>
-                                                      <li class="title"><a href="shop.html">SHOP LAYOUT</a></li>
-                                                      <li><a href="shop.html">Pagination</a></li>
-                                                      <li><a href="shop.html">Ajax Load More</a></li>
-                                                      <li><a href="shop.html">Infinite Scroll</a></li>
-                                                      <li><a href="shop.html">Sidebar Right</a></li>
-                                                      <li><a href="shop.html">Sidebar Left</a></li>
-                                                      </ul>
-                                                  </li>
-                                                  <li>
-                                                      <ul>
-                                                      <li class="title"><a href="shop.html">SHOP PAGES</a></li>
-                                                      <li><a href="shop.html">List View</a></li>
-                                                      <li><a href="shop.html">Small Products</a></li>
-                                                      <li><a href="shop.html">Large Products</a></li>
-                                                      <li><a href="shop.html">Shop — 3 Items</a></li>
-                                                      <li><a href="shop.html">Shop — 4 Items</a></li>
-                                                      <li><a href="shop.html">Shop — 5 Items</a></li>
-                                                      </ul>
-                                                  </li>
-                                                  <li>
-                                                      <ul>
-                                                      <li class="title"><a href="shop.html">PRODUCT LAYOUT</a></li>
-                                                      <li><a href="shop.html">Description Sticky</a></li>
-                                                      <li><a href="shop.html">Product Carousel</a></li>
-                                                      <li><a href="shop.html">Gallery Modern</a></li>
-                                                      <li><a href="shop.html">Thumbnail Left</a></li>
-                                                      <li><a href="shop.html">Thumbnail Right</a></li>
-                                                      <li><a href="shop.html">Thumbnail Botttom</a></li>
-                                                      </ul>
-                                                  </li>
-                                                  <li>
-                                                      <ul>
-                                                      <li class="title"><a href="shop.html">Basketball</a></li>
-                                                      <li><a href="shop.html">East Hampton Fleece</a></li>
-                                                      <li><a href="shop.html">Faxon Canvas Low</a></li>
-                                                      <li><a href="shop.html">Habitasse Dictumst</a></li>
-                                                      <li><a href="shop.html">Kaoreet Lobortis</a></li>
-                                                      <li><a href="shop.html">NikeCourt Zoom</a></li>
-                                                      <li><a href="shop.html">NikeCourts Air Zoom</a></li>
-                                                      </ul>
-                                                  </li>
-                                                  <li>
-                                                      <ul>
-                                                      <li class="title"><a href="shop.html">Basketball</a></li>
-                                                      <li><a href="shop.html">East Hampton Fleece</a></li>
-                                                      <li><a href="shop.html">Faxon Canvas Low</a></li>
-                                                      <li><a href="shop.html">Habitasse Dictumst</a></li>
-                                                      <li><a href="shop.html">Kaoreet Lobortis</a></li>
-                                                      <li><a href="shop.html">NikeCourt Zoom</a></li>
-                                                      <li><a href="shop.html">NikeCourts Air Zoom</a></li>
-                                                      </ul>
-                                                  </li>
-                                                  <li class="mega-image hover-effect" style="background-image: url(assets/img/bg/menu-item.jpg);"> 
-                                                      <ul>
-                                                        <li><a href="shop.html">
-                                                          <h4>Top Cameras <br> Bestseller Products</h4>
-                                                          <h5>4K</h5>
-                                                          <h6>Sale Up To <span>60% Off</span></h6>
-                                                        </a></li>
-                                                      </ul>
-                                                  </li>
-                                              </ul>
-                                          </div>
-                                          <div class="offer mt-40">
-                                              <p><b>30% OFF</b> the shipping of your first order with the code: <b>DUKA-SALE30</b></p>
-                                          </div>
-                                      </div>
-                                  </li>
-                                  <li><a href="blog.html">Blog <i class="far fa-angle-down"></i></a>
-                                      <ul class="submenu">
-                                          <li><a href="blog.html">Blog</a></li>
-                                          <li><a href="blog-details.html">Blog Details</a></li>
-                                      </ul>
-                                  </li>
+
                                   <li>
-                                      <a href="about.html">Pages <i class="far fa-angle-down"></i></a>
+                                    <a href="{% url 'About' %}">About Us </a>
+                                  </li> 
+
+                                  <li>
+                                    <a href="{% url 'Productview' %}">SHOP PAGE </a>
+                                  </li>
+                                  
+                                  <li><a href="#">Blog <i class="far fa-angle-down"></i></a>
+                                      <ul class="submenu">
+                                          <li><a href="{% url 'Blog' %}">Blog</a></li>
+                                          <li><a href="{% url 'Blog-details' %}">Bloger Details</a></li>
+                                      </ul>
+                                  </li>
+                                  
+                                  <li>
+                                      <a href="#">Pages <i class="far fa-angle-down"></i></a>
                                       <ul class="submenu">
                                           <li><a href="my-account.html">My Account</a></li>
-                                          <li><a href="product-details.html">Product Details</a></li>
-                                          <li><a href="faq.html">FAQs pages</a></li>
-                                          <li><a href="cart.html">Cart</a></li>
-                                          <li><a href="wishlist.html">Wishlist</a></li>
-                                          <li><a href="checkout.html">Checkout</a></li>
-                                          <li><a href="contact.html">Contact Us</a></li>
-                                          <li><a href="404.html">404 Error</a></li>
+                                          <li><a href="{% url 'Productview' %}">Shop Page</a></li>
+                                          <li><a href="{% url 'About' %}">About Us</a></li>
+                                          <li><a href="{% url 'Blog' %}">Blog</a></li>
+                                          <li><a href="{% url 'Blog-details' %}">Bloger Details</a></li>
+                                           
                                       </ul>
                                   </li>
                               </ul>
