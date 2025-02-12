@@ -1,4 +1,4 @@
-from django.shortcuts import render,HttpResponse
+from django.shortcuts import render,HttpResponse,redirect
 from . models import  *
 from django.http import JsonResponse
 import json
@@ -131,8 +131,40 @@ def user_validate(request,username,field):
                 "message":"",
             })
         
+    if field=="phone":
+        user = User.objects.filter(phone=username).exists()
+        if user:
+            return JsonResponse({
+                "status":"error",
+                "data":"",
+                "message":"email is already exists",
+            })
+        else:
+            return JsonResponse({
+                "status":"success",
+                "data":"",
+                "message":"",
+            })
+        
     return JsonResponse({
         "status":"success",
         "data":"",
         "message":"sd",
     })
+
+def registration(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        phone = request.POST.get('phone')
+        address = request.POST.get('address')
+        password = request.POST.get('userpass')
+        
+        user = User(username=username, email=email)
+        user.set_password(password)
+        user.save()
+
+        user_address = User_address(user=user, phone_number=phone, address=address)
+        user_address.save()
+    
+    return redirect("My-account")

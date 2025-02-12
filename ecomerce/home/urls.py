@@ -11,5 +11,6 @@ urlpatterns = [
     path("blog",views.blog,name="Blog"),
     path("blog-details",views.blog_details,name='Blog-details'),
     path("my-account",views.my_account,name="My-account"),
-    path("user-validate/<username>/<field>",views.user_validate,name="User-validate")
+    path("user-validate/<username>/<field>",views.user_validate,name="User-validate"),
+    path("registration",views.registration,name="Registration"),
 ]

@@ -3,6 +3,16 @@
 {% load productsinfo %}
 {% block content %}
 
+<style>
+    #regibutton:disabled{
+        background-color: #cccccc;
+        color: #ffffff;
+        border: none;
+        cursor: not-allowed;
+    }
+
+</style>
+
 <!-- page-banner-area-start -->
 <div class="page-banner-area page-banner-height-2" data-background="{% static 'assets/img/banner/page-banner-4.jpg' %}">
     <div class="container">
@@ -62,8 +72,9 @@
             <div class="col-lg-6">
                 <div class="basic-login">
                     <h5>Register</h5>
-                    <form action="#">
+                    <form action="{% url 'Registration' %}" method="post">
 
+                        {% csrf_token %}
                         <label for="username">Username<span>*</span></label> &nbsp; <span id="userwarn" style="color: red;"></span>
                         <input required id="username_id" name="username" type="text" placeholder="Enter Username">
 
@@ -81,17 +92,17 @@
                         </div>
 
                         <label for="userpass">Password <span>*</span></label> <span id="passwarn" style="color: red;"></span>
-                        <input required id="password_id" name="password" type="password" placeholder="Enter password...">
+                        <input required id="userpass_id" name="userpass" type="password" placeholder="Enter password...">
 
-                        <label for="userpass">Confirm Password <span>*</span></label> <span id="conpasswarn" style="color: red;"></span>
-                        <input required id="conpassword_id" name="conpassword" type="password" placeholder="Enter confirm password...">
+                        <label for="conpass">Confirm Password <span>*</span></label> <span id="conpasswarn" style="color: red;"></span>
+                        <input required id="confirmpass_id" name="confirmpass" type="password" placeholder="Enter confirm password...">
 
                         <div class="login-action mb-10 fix">
                             <p>Your personal data will be used to support your experience throughout this website, to
                                 manage access to your account, and for other purposes described in our <a
                                     href="#">privacy policy</a>.</p>
                         </div>
-                        <button type="submit" class="tp-in-btn w-100">Register</button> 
+                        <button type="submit" id="regibutton" class="tp-in-btn w-100">Register</button> 
                     </form>
                 </div>
             </div>
@@ -120,14 +131,53 @@
     username_id.addEventListener("input", async (e)=>{
         let username = e.target.value
         let data = await fetchData(username,"username")
-        userwarn.innerHTML = data.message
+        if (data.status == "error"){
+            userwarn.innerHTML = data.message
+            regibutton.disabled = true
+        }else{
+            userwarn.innerHTML = ""
+            regibutton.disabled = false  //enable the register button when username is valid.  // we can use this way or direct use the id.  // usernameid.disabled = false;
+        }
+        // userwarn.innerHTML = data.message
     })
-
+    
     email_id.addEventListener("input", async (e)=>{
         let email = e.target.value
         let data = await fetchData(email,"email")
-        emailwarn.innerHTML = data.message
+        if (data.status =="error"){
+            emailwarn.innerHTML = data.message
+            regibutton.disabled = true
+        }else{
+            emailwarn.innerHTML = ""
+            regibutton.disabled = false
+        }
+        // emailwarn.innerHTML = data.message
     })
+    
+    phone_id.addEventListener("input", async (e)=>{
+        let phone = e.target.value
+        let data = await fetchData(phone,"phone")
+        if (data.status == "error"){
+            phonewarn.innerHTML = data.message
+            regibutton.disabled = true
+        }else{
+            phonewarn.innerHTML = ""
+            regibutton.disabled = false
+        }
+        // phonewarn.innerHTML = data.message
+    })
+
+    confirmpass_id.addEventListener("input",async(e)=>{
+        let confirmpass = e.target.value
+        let userpass = userpass_id.value
+        if (confirmpass!= userpass){
+            conpasswarn.innerHTML = "Passwords do not match."
+            regibutton.disabled = true
+        }else{
+            conpasswarn.innerHTML = ""
+            regibutton.disabled = false
+        }
+    }) 
 
 </script>
 

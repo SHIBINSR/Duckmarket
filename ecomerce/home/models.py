@@ -4,6 +4,7 @@ from ckeditor.fields import RichTextField
 from django.utils.text import slugify
 from django.dispatch import receiver
 from django.db.models.signals import pre_save,post_save
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Slider(models.Model):
@@ -96,3 +97,9 @@ class Aditional_information(models.Model):
 class Aditional_image(models.Model):
     product = models.ForeignKey(Products, on_delete=models.CASCADE)
     image = models.CharField(max_length=550,null=True,blank=True)
+
+class User_address(models.Model):
+    user =  models.OneToOneField(User, on_delete=models.CASCADE)
+    phone_number = models.CharField(max_length=20)
+    address = models.TextField(null=True,blank=True)
+    
