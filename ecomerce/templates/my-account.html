@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+{% load static %}
+{% load productsinfo %}
+{% block content %}
+
+<!-- page-banner-area-start -->
+<div class="page-banner-area page-banner-height-2" data-background="{% static 'assets/img/banner/page-banner-4.jpg' %}">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="page-banner-content text-center">
+                    <h4 class="breadcrumb-title">My account</h4>
+                    <div class="breadcrumb-two">
+                        <nav>
+                            <nav class="breadcrumb-trail breadcrumbs">
+                                <ul class="breadcrumb-menu">
+                                    <li class="breadcrumb-trail">
+                                        <a href="{% url 'Home' %}"><span>Home</span></a>
+                                    </li>
+                                    <li class="trail-item">
+                                        <span>My account</span>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- page-banner-area-end -->
+
+<!-- account-area-start -->
+<div class="account-area mt-70 mb-70">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="basic-login mb-50">
+                    <h5>Login</h5>
+                    <form action="#">
+                        
+                        <label for="name">Username or email address <span>*</span></label>
+                        <input id="name" type="text" placeholder="Enter Username">
+
+                        <label for="pass">Password <span>*</span></label>
+                        <input id="pass" type="password" placeholder="Enter password...">
+
+                        <div class="login-action mb-10 fix">
+                            <span class="log-rem f-left">
+                                <input id="remember" type="checkbox">
+                                <label for="remember">Remember me</label>
+                            </span>
+                            <span class="forgot-login f-right">
+                                <a href="#">Lost your password?</a>
+                            </span>
+                        </div>
+                        <a href="login.html" class="tp-in-btn w-100">log in</a>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="basic-login">
+                    <h5>Register</h5>
+                    <form action="#">
+
+                        <label for="username">Username<span>*</span></label> &nbsp; <span id="userwarn" style="color: red;"></span>
+                        <input required id="username_id" name="username" type="text" placeholder="Enter Username">
+
+                        <label for="email">Email Address <span>*</span></label> <span id="emailwarn" style="color: red;"></span>
+                        <input required id="email_id" name="email" type="email" placeholder="Email address...">
+                        
+                        <label for="phone">Phone Number <span>*</span></label> <span id="phonewarn" style="color: red;"></span>
+                        <input required id="phone_id" name="phone" type="phone" placeholder="+91...">
+                
+                        <div class="order-notes">
+                            <div class="checkout-form-list">
+                                <label>Address</label>
+                                <textarea id="address_id" name="address" cols="30" rows="10" placeholder="Enter address..."></textarea>
+                            </div>
+                        </div>
+
+                        <label for="userpass">Password <span>*</span></label> <span id="passwarn" style="color: red;"></span>
+                        <input required id="password_id" name="password" type="password" placeholder="Enter password...">
+
+                        <label for="userpass">Confirm Password <span>*</span></label> <span id="conpasswarn" style="color: red;"></span>
+                        <input required id="conpassword_id" name="conpassword" type="password" placeholder="Enter confirm password...">
+
+                        <div class="login-action mb-10 fix">
+                            <p>Your personal data will be used to support your experience throughout this website, to
+                                manage access to your account, and for other purposes described in our <a
+                                    href="#">privacy policy</a>.</p>
+                        </div>
+                        <button type="submit" class="tp-in-btn w-100">Register</button> 
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- account-area-end -->
+
+{% endblock %}
+
+{% block js %}
+
+<script>
+    // let url = ""
+    let fetchData= async(username,field)=>{
+        url = `user-validate/${username}/${field}`;
+
+        let res = await fetch(url)
+        let data = await res.json()
+        return data
+    }
+
+    // let usernameid = document.getElementById("username-id")    //we can use this way or direct use the id. 
+    // let emailid = document.getElementById("email-id")
+
+    username_id.addEventListener("input", async (e)=>{
+        let username = e.target.value
+        let data = await fetchData(username,"username")
+        userwarn.innerHTML = data.message
+    })
+
+    email_id.addEventListener("input", async (e)=>{
+        let email = e.target.value
+        let data = await fetchData(email,"email")
+        emailwarn.innerHTML = data.message
+    })
+
+</script>
+
+
+{% endblock %}

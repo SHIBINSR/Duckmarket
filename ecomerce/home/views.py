@@ -3,6 +3,7 @@ from . models import  *
 from django.http import JsonResponse
 import json
 from django.template.loader import render_to_string
+from django.contrib.auth.models import User
 
 # Create your views here.
 def base(request):
@@ -53,8 +54,11 @@ def filter_category(request):
         }
         data = render_to_string("includes/ajax/product_filtered.html",context)
 
-    return JsonResponse({"status":"success",
-                         "data":data})
+    return JsonResponse({
+        "status":"success",
+        "data":data,
+        "message":"",
+    })
           
         
 def product_details(request,slug):
@@ -87,3 +91,48 @@ def blog_details(request):
         "maincategory":main_category, 
     }
     return render(request,"blog-details.html",context)
+
+def my_account(request):
+    main_category = MainCategory.objects.all()
+    context = {
+        "maincategory":main_category,
+    }
+    return render(request,"my-account.html",context)
+
+def user_validate(request,username,field):
+    print(username,"123",field)
+    if field=="username":
+        user = User.objects.filter(username=username).exists()
+        if user:
+            return JsonResponse({
+                "status":"error",
+                "data":"",
+                "message":"username already exists",
+            })
+        else:
+            return JsonResponse({
+                "status":"success",
+                "data":"",
+                "message":"",
+            })
+        
+    if field=="email":
+        user = User.objects.filter(email=username).exists()
+        if user:
+            return JsonResponse({
+                "status":"error",
+                "data":"",
+                "message":"email is already exists",
+            })
+        else:
+            return JsonResponse({
+                "status":"success",
+                "data":"",
+                "message":"",
+            })
+        
+    return JsonResponse({
+        "status":"success",
+        "data":"",
+        "message":"sd",
+    })
