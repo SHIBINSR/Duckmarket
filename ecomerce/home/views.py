@@ -100,7 +100,6 @@ def my_account(request):
     return render(request,"my-account.html",context)
 
 def user_validate(request,username,field):
-    print(username,"123",field)
     if field=="username":
         user = User.objects.filter(username=username).exists()
         if user:
@@ -115,7 +114,6 @@ def user_validate(request,username,field):
                 "data":"",
                 "message":"",
             })
-        
     if field=="email":
         user = User.objects.filter(email=username).exists()
         if user:
@@ -129,15 +127,14 @@ def user_validate(request,username,field):
                 "status":"success",
                 "data":"",
                 "message":"",
-            })
-        
+            }) 
     if field=="phone":
-        user = User.objects.filter(phone=username).exists()
+        user = User_address.objects.filter(phone_number=username).exists()
         if user:
             return JsonResponse({
                 "status":"error",
                 "data":"",
-                "message":"email is already exists",
+                "message":"Phone number is already exists",
             })
         else:
             return JsonResponse({
@@ -145,7 +142,6 @@ def user_validate(request,username,field):
                 "data":"",
                 "message":"",
             })
-        
     return JsonResponse({
         "status":"success",
         "data":"",

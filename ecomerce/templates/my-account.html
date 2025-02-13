@@ -153,7 +153,7 @@
         }
         // emailwarn.innerHTML = data.message
     })
-    
+
     phone_id.addEventListener("input", async (e)=>{
         let phone = e.target.value
         let data = await fetchData(phone,"phone")
@@ -165,6 +165,19 @@
             regibutton.disabled = false
         }
         // phonewarn.innerHTML = data.message
+    })
+    
+    phone_id.addEventListener("input", async (e)=>{
+        let phone = e.target.value
+        if (phone.length > 10 || phone.length < 10  ){
+            phonewarn.innerHTML = "Invalid phone number."
+            regibutton.disabled = true
+            // return  //exit the function if phone number is invalid.
+        }else{
+            phonewarn.innerHTML = ""
+            regibutton.disabled = false  //enable the register button when phone number is valid.
+        }
+        
     })
 
     confirmpass_id.addEventListener("input",async(e)=>{
