@@ -164,3 +164,7 @@ def registration(request):
         user_address.save()
     
     return redirect("My-account")
+
+def cart(request):
+    
+    return render(request,"cart.html")
