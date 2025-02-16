@@ -48,13 +48,13 @@
             <div class="col-lg-6">
                 <div class="basic-login mb-50">
                     <h5>Login</h5>
-                    <form action="#">
-                        
-                        <label for="name">Username or email address <span>*</span></label>
-                        <input id="name" type="text" placeholder="Enter Username">
+                    <form action="{%url 'Login' %}" method="post">
+                        {% csrf_token %}
+                        <label for="name">Username  <span>*</span></label>
+                        <input required id="name_id" name="name" type="text" placeholder="Enter Username">
 
                         <label for="pass">Password <span>*</span></label>
-                        <input id="pass" type="password" placeholder="Enter password...">
+                        <input required id="pass_id" name="pass" type="password" placeholder="Enter password...">
 
                         <div class="login-action mb-10 fix">
                             <span class="log-rem f-left">
@@ -65,14 +65,14 @@
                                 <a href="#">Lost your password?</a>
                             </span>
                         </div>
-                        <a href="login.html" class="tp-in-btn w-100">log in</a>
+                        <button type="submit" id="logbutton" class="tp-in-btn w-100">Log in</button> 
                     </form>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="basic-login">
                     <h5>Register</h5>
-                    <form action="{% url 'Registration' %}" method="post">
+                    <form onsubmit="return validatePhoneNumber()" action="{% url 'Registration' %}" method="post">
 
                         {% csrf_token %}
                         <label for="username">Username<span>*</span></label> &nbsp; <span id="userwarn" style="color: red;"></span>
@@ -82,7 +82,7 @@
                         <input required id="email_id" name="email" type="email" placeholder="Email address...">
                         
                         <label for="phone">Phone Number <span>*</span></label> <span id="phonewarn" style="color: red;"></span>
-                        <input required id="phone_id" name="phone" type="phone" placeholder="+91...">
+                        <input required id="phone_id" name="phone" type="text" maxlength="10" placeholder="+91...">
                 
                         <div class="order-notes">
                             <div class="checkout-form-list">
@@ -125,6 +125,26 @@
         return data
     }
 
+    function validatePhoneNumber() {
+        let phoneInput = document.getElementById("phone_id").value;
+        let errorMessage = document.getElementById("phonewarn");
+
+        // Regular expression: Only 10-digit numbers allowed
+        let phonePattern = /^[0-9]{10}$/;
+
+        if (!phonePattern.test(phoneInput)) {
+            errorMessage.innerText = "❌ Please enter a valid 10-digit phone number!";
+            regibutton.disabled = true
+            return false // Prevent form submission
+        } else {
+            errorMessage.innerText = "";
+            return true; // Allow form submission
+        }
+    }
+    // document.getElementById("phone").addEventListener("input", function (e) {
+    //     this.value = this.value.replace(/[^0-9]/g, ""); // Remove non-numeric characters
+    // });
+
     // let usernameid = document.getElementById("username-id")    //we can use this way or direct use the id. 
     // let emailid = document.getElementById("email-id")
 
@@ -153,7 +173,7 @@
         }
         // emailwarn.innerHTML = data.message
     })
-
+    
     phone_id.addEventListener("input", async (e)=>{
         let phone = e.target.value
         let data = await fetchData(phone,"phone")
@@ -167,19 +187,6 @@
         // phonewarn.innerHTML = data.message
     })
     
-    phone_id.addEventListener("input", async (e)=>{
-        let phone = e.target.value
-        if (phone.length > 10 || phone.length < 10  ){
-            phonewarn.innerHTML = "Invalid phone number."
-            regibutton.disabled = true
-            // return  //exit the function if phone number is invalid.
-        }else{
-            phonewarn.innerHTML = ""
-            regibutton.disabled = false  //enable the register button when phone number is valid.
-        }
-        
-    })
-
     confirmpass_id.addEventListener("input",async(e)=>{
         let confirmpass = e.target.value
         let userpass = userpass_id.value

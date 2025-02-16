@@ -4,6 +4,8 @@ from django.http import JsonResponse
 import json
 from django.template.loader import render_to_string
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
 
 # Create your views here.
 def base(request):
@@ -162,9 +164,33 @@ def registration(request):
 
         user_address = User_address(user=user, phone_number=phone, address=address)
         user_address.save()
+        messages.success(request, 'Registration successful')
     
-    return redirect("My-account")
+    return redirect("Home")
 
 def cart(request):
     
     return render(request,"cart.html")
+
+def Login(request):
+    if request.method == "POST":
+        username = request.POST.get("name")
+        password = request.POST.get("pass")
+        print(username,password)
+        user = authenticate(username=username, password=password)
+        print(user)
+        if user is not None:
+            messages.success(request, "Login successfully.")
+            login(request,user)
+            return redirect("Home")
+        else:
+            messages.warning(request, "Invalid credentials Try again.")
+            return redirect("Login") 
+    return render(request,"my-account.html")
+
+def Logout(request):
+    logout(request)
+    messages.success(request, "Logout successfully.")
+    return redirect("Home")
+        
+        

@@ -135,14 +135,25 @@
                       </div>
                       <div class="col-xl-4 col-lg-5 col-md-8 col-sm-8">
                           <div class="header-action">
+                            {% if user.is_authenticated %}
                               <div class="block-userlink">
-                                  <a class="icon-link" href="{% url 'My-account' %}">
+                                  <a class="icon-link" href="{% url 'Logout' %}">
                                   <i class="flaticon-user"></i>
                                   <span class="text">
-                                  <span class="sub">Login </span>
+                                  <span class="sub">Logout </span>
                                   My Account </span>
                                   </a>
                               </div>
+                              {% else %}
+                              <div class="block-userlink">
+                                <a class="icon-link" href="{% url 'My-account' %}">
+                                <i class="flaticon-user"></i>
+                                <span class="text">
+                                <span class="sub">Login</span>
+                                My Account </span>
+                                </a>
+                              </div>
+                            {% endif %}
                               <div class="block-wishlist action">
                                   <a class="icon-link" href="wishlist.html">
                                   <i class="flaticon-heart"></i>
@@ -276,6 +287,8 @@
                                           <li><a href="{% url 'About' %}">About Us</a></li>
                                           <li><a href="{% url 'Blog' %}">Blog</a></li>
                                           <li><a href="{% url 'Blog-details' %}">Bloger Details</a></li>
+                                          <li><a href="{% url 'My-account' %}">Registration</a></li>
+                                          <li><a href="{% url 'Login' %}">Login</a></li>
                                            
                                       </ul>
                                   </li>
