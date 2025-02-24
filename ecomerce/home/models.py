@@ -65,6 +65,7 @@ class Products(models.Model):
     category = models.ForeignKey(Category,on_delete=models.DO_NOTHING)
     price = models.PositiveBigIntegerField(default=0,null= True)
     discount = models.PositiveBigIntegerField(default=0,null=True)
+    # disprice = (discount/100) * price
     featured_image = models.CharField(max_length=200,null=True)
     total =  models.PositiveBigIntegerField(default=0,null=True)
     available = models.PositiveBigIntegerField(default=0,null=True)
@@ -74,6 +75,10 @@ class Products(models.Model):
     slug = models.CharField(max_length=555, null=True, blank=True)
     brand = models.CharField(max_length=200,null=True)
 
+    def discounted_price(self):
+        a=(self.discount/100)*self.price
+        b=self.price-a
+        return int(b)
     def __str__(self):
         return self.title
 
@@ -106,3 +111,20 @@ class User_address(models.Model):
     def __str__(self):
         return self.user.username
     
+class Cart(models.Model):
+    user = models.ForeignKey(User,on_delete=models.CASCADE,null=True,blank=True)
+    session_id = models.CharField(max_length=100, null=True, blank=True)
+    product = models.ForeignKey(Products, on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField(default=1)
+    added_at = models.DateTimeField(auto_now_add=True)
+
+    def discount_price(self):
+        a=(self.product.discount/100)* self.product.price
+        b=self.product.price-a
+        return int(b)
+
+    def total_price(self):
+        return self.quantity *   self.discount_price()
+
+    def __str__(self):
+        return f"{self.product.title} - {self.quantity}"

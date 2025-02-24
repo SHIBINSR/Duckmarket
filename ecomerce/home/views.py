@@ -1,4 +1,5 @@
-from django.shortcuts import render,HttpResponse,redirect
+from django.shortcuts import render,HttpResponse,redirect,get_object_or_404
+from django.contrib.auth.decorators import login_required
 from . models import  *
 from django.http import JsonResponse
 import json
@@ -11,7 +12,6 @@ from django.contrib import messages
 def base(request):
     return render(request,"base.html")
      
-
 def home(request):
     main_category = MainCategory.objects.all()
     banner_area = Banner_area.objects.all()
@@ -61,8 +61,7 @@ def filter_category(request):
         "data":data,
         "message":"",
     })
-          
-        
+                 
 def product_details(request,slug):
     product = Products.objects.get(slug=slug)
     context ={
@@ -77,16 +76,14 @@ def about(request):
         "maincategory":main_category,  
     }
     return render(request,"about.html",context)
-         
-         
+                 
 def blog(request):
     main_category = MainCategory.objects.all()
     context = {
         "maincategory":main_category,
     }
     return render(request,"blog.html",context)
-      
-           
+         
 def blog_details(request):
     main_category = MainCategory.objects.all()
     context = {
@@ -168,10 +165,6 @@ def registration(request):
     
     return redirect("Home")
 
-def cart(request):
-    
-    return render(request,"cart.html")
-
 def Login(request):
     if request.method == "POST":
         username = request.POST.get("name")
@@ -193,4 +186,33 @@ def Logout(request):
     messages.success(request, "Logout successfully.")
     return redirect("Home")
         
-        
+def cart(request):
+    print(request)
+    if request.user.is_authenticated:
+        cart_items = Cart.objects.filter(user=request.user)
+    else:
+        session_id = request.session.session_key
+        if not session_id:
+            request.session.create()
+        cart_items = Cart.objects.filter(session_id=request.session.session_key)
+
+    total_amount = sum(item.total_price() for item in cart_items)
+
+    return render(request, "cart.html", {"cart_items": cart_items, "total_amount": total_amount})
+
+def add_to_cart(request, product_id):
+    product = get_object_or_404(Products, id=product_id)
+    if request.user.is_authenticated:
+        cart_item, created = Cart.objects.get_or_create(user=request.user, product=product)
+    else:
+        session_id = request.session.session_key
+        if not session_id:
+            request.session.create()
+        cart_item, created = Cart.objects.get_or_create(session_id=request.session.session_key, product=product)
+    if not created:
+        cart_item.quantity += 1
+    cart_item.save()
+    return redirect('Cart')
+
+def wishlist(request):
+    return render(request,"wishlist.html")

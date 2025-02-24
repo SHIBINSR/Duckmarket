@@ -14,6 +14,8 @@ urlpatterns = [
     path("user-validate/<username>/<field>",views.user_validate,name="User-validate"),
     path("registration",views.registration,name="Registration"),
     path("cart",views.cart,name="Cart"),
+    path("add-to-cart/<int:product_id>/", views.add_to_cart, name="Add_to_cart"),
+    path("wishlist",views.wishlist,name="Wishlist"),
     path("login",views.Login,name="Login"),
     path("logout",views.Logout,name="Logout"),
 ]
