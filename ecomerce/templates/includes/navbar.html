@@ -140,8 +140,8 @@
                                   <a class="icon-link" href="{% url 'Logout' %}">
                                   <i class="flaticon-user"></i>
                                   <span class="text">
-                                  <span class="sub">Logout </span>
-                                  My Account </span>
+                                  <span class="sub">My Account </span>
+                                  Logout </span>
                                   </a>
                               </div>
                               {% else %}
@@ -149,8 +149,8 @@
                                 <a class="icon-link" href="{% url 'My-account' %}">
                                 <i class="flaticon-user"></i>
                                 <span class="text">
-                                <span class="sub">Login</span>
-                                My Account </span>
+                                <span class="sub">MY Account</span>
+                                Login </span>
                                 </a>
                               </div>
                             {% endif %}
@@ -166,7 +166,7 @@
                               <div class="block-cart action">
                                   <a class="icon-link" href="{% url 'Cart' %}">
                                   <i class="flaticon-shopping-bag"></i>
-                                  <span class="count">1</span>
+                                  <span class="count">{{cart.count}}</span>
                                   <span class="text">
                                   <span class="sub">Your Cart:</span>
                                   $00.00 </span>
@@ -246,7 +246,7 @@
                                           <li><a href="{% url 'Blog' %}">Blog</a></li>
                                           <li><a href="{% url 'Blog-details' %}">Bloger Details</a></li>
                                           <li><a href="{% url 'My-account' %}">Registration</a></li>
-                                          <li><a href="{% url 'Login' %}">Login</a></li>
+                                          <li><a href="{% url 'My-account' %}">Login</a></li>
                                            
                                       </ul>
                                   </li>

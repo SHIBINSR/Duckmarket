@@ -54,9 +54,9 @@
             </div>
         </div>
         <div class="product__add-cart-s text-center">
-            <button type="button" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
+            <a href="{% url 'Add_to_cart' pro.id %}"  class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
                 Add to Cart
-            </button>
+            </a>
             <button type="button" class="wc-checkout d-flex align-items-center justify-content-center w-100"
                 data-bs-toggle="modal" data-bs-target="#productModalId">
                 Quick View

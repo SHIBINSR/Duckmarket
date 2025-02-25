@@ -8,7 +8,7 @@
    <div class="container">
       <div class="row">
          <div class="col-12">
-            <form action="#">
+            
                <div class="table-content table-responsive">
                   <table class="table">
                      <thead>
@@ -24,18 +24,18 @@
                      <tbody>
                         {% for item in cart_items %}
                         <tr>
-                           <td class="product-thumbnail"><a href="#"><img src="{{ item.product.featured_image }}"
+                           <td class="product-thumbnail"><a href="{% url 'Productdetails' item.product.slug %}"><img src="{{ item.product.featured_image }}"
                                     alt=""></a></td>
-                           <td class="product-name"><a href="#">{{ item.product.title }}</a></td>
+                           <td class="product-name"><a href="{% url 'Productdetails' item.product.slug %}">{{ item.product.title }}</a></td>
                         <td class="product-price"><span class="amount">&#8377;{{ item.product.discounted_price }}</span></td>
                            <td class="product-quantity">
                               <div class="cart-plus-minus"><input type="text" value="{{ item.quantity }}">
-                                 <div class="dec qtybutton">-</div>
-                                 <div class="inc qtybutton">+</div>
+                                 <div class="dec qtybutton"  >-</div>
+                                 <div class="inc qtybutton"  >+</div>
                               </div>
                            </td>
                            <td class="product-subtotal"><span class="amount">&#8377;{{ item.total_price }}</span></td>
-                           <td class="product-remove"><a href="#"><i class="fa fa-times"></i></a></td>
+                           <td class="product-remove"><a href="{% url 'Remove_cart' item.id %}"><i class="fa fa-times"></i></a></td>
                         </tr>
                         {% endfor %}
 
@@ -57,19 +57,8 @@
                      </div>
                   </div>
                </div>
-               <div class="row justify-content-end">
-                  <div class="col-md-5">
-                     <div class="cart-page-total">
-                        <h2>Cart totals</h2>
-                        <ul class="mb-20">
-                           <li>Subtotal <span>$250.00</span></li>
-                           <li>Total <span>$250.00</span></li>
-                        </ul>
-                        <a class="tp-btn-h1" href="checkout.html">Proceed to checkout</a>
-                     </div>
-                  </div>
-               </div>
-            </form>
+                
+            
          </div>
       </div>
    </div>

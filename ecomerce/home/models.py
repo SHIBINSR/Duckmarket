@@ -65,7 +65,6 @@ class Products(models.Model):
     category = models.ForeignKey(Category,on_delete=models.DO_NOTHING)
     price = models.PositiveBigIntegerField(default=0,null= True)
     discount = models.PositiveBigIntegerField(default=0,null=True)
-    # disprice = (discount/100) * price
     featured_image = models.CharField(max_length=200,null=True)
     total =  models.PositiveBigIntegerField(default=0,null=True)
     available = models.PositiveBigIntegerField(default=0,null=True)
@@ -119,12 +118,12 @@ class Cart(models.Model):
     added_at = models.DateTimeField(auto_now_add=True)
 
     def discount_price(self):
-        a=(self.product.discount/100)* self.product.price
+        a=(self.product.discount/100)*self.product.price
         b=self.product.price-a
         return int(b)
 
     def total_price(self):
-        return self.quantity *   self.discount_price()
+        return self.quantity*self.discount_price()
 
     def __str__(self):
         return f"{self.product.title} - {self.quantity}"

@@ -220,10 +220,7 @@
                                     </div>
                                 </div>
                                 <div class="product__add-cart text-center">
-                                    <button type="button"
-                                        class="cart-btn product-modal-sidebar-open-btn d-flex align-items-center justify-content-center w-100">
-                                        Add to Cart
-                                    </button>
+                                    <a href="{% url 'Add_to_cart' product.id %}" class="cart-btn">Add to Cart</a>
                                 </div>
                             </div>
                             {% endfor %}
@@ -334,17 +331,17 @@
                                         <span>{{ i.available }} in stock</span>
                                     </div>
                                     <div class="product__modal-form">
-                                        <form action="#">
+                                         
                                             <div class="pro-quan-area d-lg-flex align-items-center">
-                                                <!-- <div class="product-quantity mr-20 mb-25">
+                                                <div class="product-quantity mr-20 mb-25">
                                                     <div class="cart-plus-minus p-relative"><input type="text"
                                                             value="1" /></div>
-                                                </div> -->
+                                                </div>
                                                 <div class="pro-cart-btn mb-25">
-                                                    <button class="cart-btn" href="" >Add to cart</button>
+                                                    <a href="{% url 'Add_to_cart' i.id %}" class="cart-btn">Add to Cart</a>
                                                 </div>
                                             </div>
-                                        </form>
+                                         
                                     </div>
                                     <div class="product__stock mb-30">
                                         {% for k in i.aditional_information_set.all %}
